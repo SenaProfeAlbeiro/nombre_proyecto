@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>Vista Principal de la Empresa</h1>
-    <a href="?c=Empresa&a=iniciarSesion">Iniciar Sesión</a>
+    <a href="?c=IniciarSesion">Iniciar Sesión</a>
 </body>
 </html>

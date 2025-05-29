@@ -7,8 +7,18 @@
     <title>Empresa</title>
 </head>
 <body>
-    <h1>Formulario Iniciar Sesión</h1>
-    <a href="?">Cancelar</a>
+    <h1>Iniciar Sesión</h1>
+    <form action="" method="POST">
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="user_email" placeholder="@soysena.edu.co">
+        </div>
+        <div>
+            <label for="">Contraseña</label>
+            <input type="password" name="user_pass" placeholder="Entre 5 y 8 caracteres">
+        </div>
+        <a href="?">Cancelar</a>
+        <input type="submit" value="Enviar">
+    </form>
 </body>
-
 </html>

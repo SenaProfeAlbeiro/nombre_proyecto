@@ -10,5 +10,4 @@
         $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'main';
         call_user_func(array($controlador, $accion));
     }
-
 ?>

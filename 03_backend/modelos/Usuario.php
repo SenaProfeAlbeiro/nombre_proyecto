@@ -30,6 +30,34 @@
         public function getRolNombre(){
             return $this->rolNombre;
         }
+        // $UsuarioCodigo
+        public function setUsuarioCodigo($usuarioCodigo){
+            $this->usuarioCodigo = $usuarioCodigo;
+        }
+        public function getUsuarioCodigo(){
+            return $this->usuarioCodigo;
+        }
+        // $UsuarioNombres
+        public function setUsuarioNombres($usuarioNombres){
+            $this->usuarioNombres = $usuarioNombres;
+        }
+        public function getUsuarioNombres(){
+            return $this->usuarioNombres;
+        }
+        // $UsuarioApellidos
+        public function setUsuarioApellidos($usuarioApellidos){
+            $this->usuarioApellidos = $usuarioApellidos;
+        }
+        public function getUsuarioApellidos(){
+            return $this->usuarioApellidos;
+        }
+        // $UsuarioIdentificacion
+        public function setUsuarioIdentificacion($usuarioIdentificacion){
+            $this->usuarioIdentificacion = $usuarioIdentificacion;
+        }
+        public function getUsuarioIdentificacion(){
+            return $this->usuarioIdentificacion;
+        }
         // $usuarioEmail
         public function setUsuarioEmail($usuarioEmail){
             $this->usuarioEmail = $usuarioEmail;
@@ -43,6 +71,13 @@
         }
         public function getUsuarioPass(){
             return $this->usuarioPass;
+        }
+        // $usuarioEstado
+        public function setUsuarioEstado($usuarioEstado){
+            $this->usuarioEstado = $usuarioEstado;
+        }
+        public function getUsuarioEstado(){
+            return $this->usuarioEstado;
         }
         
         

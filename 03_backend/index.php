@@ -1,7 +1,7 @@
 <?php
     if (!isset($_REQUEST['c'])) {
-        require_once "controladores/IniciarSesion.php";
-        $controlador = new IniciarSesion;
+        require_once "controladores/Empresa.php";
+        $controlador = new Empresa;
         $controlador->main();        
     } else {        
         $controlador = $_REQUEST['c'];        

@@ -4,16 +4,49 @@
         /* Atributos */
         private $rolCodigo;
         private $rolNombre;        
-        private $UsuarioCodigo;
-        private $UsuarioNombres;
-        private $UsuarioApellidos;
-        private $UsuarioIdentificacion;
-        private $UsuarioEmail;
-        private $UsuarioPass;
-        private $UsuarioEstado;
+        private $usuarioCodigo;
+        private $usuarioNombres;
+        private $usuarioApellidos;
+        private $usuarioIdentificacion;
+        private $usuarioEmail;
+        private $usuarioPass;
+        private $usuarioEstado;
         
         /* Métodos: Sobrecarga de Constructores */
+        public function __construct(){
+            try {                
+                $a = func_get_args();
+                $i = func_num_args();
+                if (method_exists($this, $f = '__construct' . $i)) {
+                    call_user_func_array(array($this, $f), $a);
+                }
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+        }
+
+        // Constructor: 0 parámetros
+        public function __construct0(){}
         
+        // Constructor: 9 parámetros
+        public function __construct9($rolCodigo,$rolNombre,$usuarioCodigo,$usuarioNombres,$usuarioApellidos,$usuarioIdentificacion,$usuarioEmail,$usuarioPass,$usuarioEstado){
+            $this->rolCodigo = $rolCodigo;
+            $this->rolNombre = $rolNombre;
+            $this->usuarioCodigo = $usuarioCodigo;
+            $this->usuarioNombres = $usuarioNombres;
+            $this->usuarioApellidos = $usuarioApellidos;
+            $this->usuarioIdentificacion = $usuarioIdentificacion;
+            $this->usuarioEmail = $usuarioEmail;
+            $this->usuarioPass = $usuarioPass;
+            $this->usuarioEstado = $usuarioEstado;
+        }
+        
+        // Constructor: 2 parámetros
+        public function __construct2($usuarioEmail, $usuarioPass){
+            $this->usuarioEmail = $usuarioEmail;
+            $this->usuarioPass = $usuarioPass;
+        }
+
         /* Métodos: Setter y Getter */
         
         // $rolCodigo

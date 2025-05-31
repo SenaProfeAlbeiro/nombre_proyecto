@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- Table `db_projecto`.`USUARIOS`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_projecto`.`USUARIOS` (
-  `rol_codigo` INT NOT NULL,
+  `rol_codigo` INT NOT NULL,  
   `usuario_codigo` INT NOT NULL AUTO_INCREMENT,
   `usuario_nombres` VARCHAR(100) NOT NULL,
   `usuario_apellidos` VARCHAR(100) NOT NULL,

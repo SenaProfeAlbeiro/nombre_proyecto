@@ -1,8 +1,9 @@
 <?php
+    require_once "modelos/DataBase.php";    
     if (!isset($_REQUEST['c'])) {
-        require_once "controladores/Empresa.php";
-        $controlador = new Empresa;
-        $controlador->main();        
+        require_once "controladores/Usuarios.php";
+        $controlador = new Usuarios;
+        $controlador->rolRegistrar();        
     } else {        
         $controlador = $_REQUEST['c'];        
         require_once "controladores/" . $controlador . ".php";        

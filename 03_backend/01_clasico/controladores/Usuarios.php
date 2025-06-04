@@ -19,7 +19,11 @@ class Usuarios{
             header("Location: ?");         
         }
     }
-        
-        
+    
+    public function rolConsultar(){
+        $roles = new Usuario;
+        $roles = $roles->readRoles();
+        require_once "vistas/modulos/usuarios/consultar_roles.vista.php";
+    }
         
 }

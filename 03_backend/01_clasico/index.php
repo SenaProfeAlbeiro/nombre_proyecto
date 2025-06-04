@@ -3,7 +3,7 @@
     if (!isset($_REQUEST['c'])) {
         require_once "controladores/Usuarios.php";
         $controlador = new Usuarios;
-        $controlador->rolRegistrar();        
+        $controlador->rolConsultar();        
     } else {        
         $controlador = $_REQUEST['c'];        
         require_once "controladores/" . $controlador . ".php";        

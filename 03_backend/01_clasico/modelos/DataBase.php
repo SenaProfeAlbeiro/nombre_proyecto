@@ -2,7 +2,6 @@
 class DataBase{
     #  Conexión Local
     public static function connection(){
-
         ## Conexión Local
         $hostname = "localhost";
         $port = "3306";

@@ -42,7 +42,7 @@
             $this->usuarioPass = $usuarioPass;
             $this->usuarioEstado = $usuarioEstado;
         }
-        // Constructor: 9 parámetros
+        // Constructor: 8 parámetros
         public function __construct8($rolCodigo,$usuarioCodigo,$usuarioNombres,$usuarioApellidos,$usuarioIdentificacion,$usuarioEmail,$usuarioPass,$usuarioEstado){
             $this->rolCodigo = $rolCodigo;            
             $this->usuarioCodigo = $usuarioCodigo;
@@ -174,16 +174,15 @@
         }
 
         # CU04 - Consultar Roles
-        public function readRoles()
-        {
+        public function readRoles(){
             try {
                 $rolList = [];
                 $sql = 'SELECT * FROM ROLES';
                 $stmt = $this->dbh->query($sql);
                 foreach ($stmt->fetchAll() as $rol) {
-                    $rolObj = new User;
-                    $rolObj->setRolCode($rol['rol_code']);
-                    $rolObj->setRolName($rol['rol_name']);
+                    $rolObj = new Usuario;
+                    $rolObj->setRolCodigo($rol['rol_codigo']);
+                    $rolObj->setRolNombre($rol['rol_nombre']);
                     array_push($rolList, $rolObj);
                 }
                 return $rolList;

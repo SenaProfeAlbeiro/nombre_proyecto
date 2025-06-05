@@ -198,43 +198,43 @@
                 │       │   └── logo.png                                    # A. .
                 │       └── js/                                             # C. .
                 │           └── scripts.js                                  # A. .
-                └── controllers/                                            # C. Aplicación móvil de React Native.
-                │   ├── Dashboard.php                                       # C. Recursos estáticos (imágenes, fuentes).
-                │   ├── Landing.php                                         # C. Recursos estáticos (imágenes, fuentes).
-                │   ├── Login.php                                           # C. Recursos estáticos (imágenes, fuentes).
-                │   ├── Logout.php                                          # C. Recursos estáticos (imágenes, fuentes).                    
-                │   └── Users.php                                           # C. Recursos estáticos (imágenes, fuentes).
-                └── models/                                                 # C. Aplicación móvil de React Native.
-                │   ├── DataBase.php                                        # C. Recursos estáticos (imágenes, fuentes).                    
-                │   └── User.php                                            # C. Recursos estáticos (imágenes, fuentes).
-                └── views/                                                  # C. Aplicación móvil de React Native.
-                │   ├── company/                                            # C. Recursos estáticos (imágenes, fuentes).                    
-                │   │   ├── footer.view.php                                 # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │   ├── header.view.php                                 # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │   └── index.view.php                                  # A. Configuración principal del backend (variables de entorno, etc.).
-                │   ├── modules/                                            # C. Recursos estáticos (imágenes, fuentes).                    
-                │   │   ├── roles/                                          # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │   │   ├── rol_create.view.php                         # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │   │   ├── rol_read.view.php                           # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │   │   └── rol_update.view.php                         # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │   └── users/                                          # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │       ├── users_create.view.php                       # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │       ├── users_read.view.php                         # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │       └── users_update.view.php                       # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   └── roles/                                              # C. Recursos estáticos (imágenes, fuentes).                    
-                │       ├── admin/                                          # A. Configuración principal del backend (variables de entorno, etc.).
-                │       │   ├── admin.view.php                              # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       │   ├── footer.view.php                             # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       │   └── header.view.php                             # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       ├── customer/                                       # A. Configuración principal del backend (variables de entorno, etc.).
-                │       │   ├── customer.view.php                           # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       │   ├── footer.view.php                             # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       │   └── header.view.php                             # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       └── seller/                                         # A. Configuración principal del backend (variables de entorno, etc.).
-                │           ├── customer.view.php                           # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │           ├── footer.view.php                             # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │           └── header.view.php                             # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                └── index.php                                               # C. Aplicación móvil de React Native.
+                └── controllers/                                            # C. .
+                │   ├── Dashboard.php                                       # A. .
+                │   ├── Landing.php                                         # A. .
+                │   ├── Login.php                                           # A. .
+                │   ├── Logout.php                                          # A. .
+                │   └── Users.php                                           # A. .
+                └── models/                                                 # C. .
+                │   ├── DataBase.php                                        # A. .
+                │   └── User.php                                            # A. .
+                └── views/                                                  # C. .
+                │   ├── company/                                            # C. .
+                │   │   ├── footer.view.php                                 # A. .
+                │   │   ├── header.view.php                                 # A. .
+                │   │   └── index.view.php                                  # A. .
+                │   ├── modules/                                            # C. .
+                │   │   ├── roles/                                          # C. .
+                │   │   │   ├── rol_create.view.php                         # A. .
+                │   │   │   ├── rol_read.view.php                           # A. .
+                │   │   │   └── rol_update.view.php                         # A. .
+                │   │   └── users/                                          # C. .
+                │   │       ├── users_create.view.php                       # A. .
+                │   │       ├── users_read.view.php                         # A. .
+                │   │       └── users_update.view.php                       # A. .
+                │   └── roles/                                              # C. .
+                │       ├── admin/                                          # C. .
+                │       │   ├── admin.view.php                              # A. .
+                │       │   ├── footer.view.php                             # A. .
+                │       │   └── header.view.php                             # A. .
+                │       ├── customer/                                       # C. .
+                │       │   ├── customer.view.php                           # A. .
+                │       │   ├── footer.view.php                             # A. .
+                │       │   └── header.view.php                             # A. .
+                │       └── seller/                                         # C. .
+                │           ├── customer.view.php                           # A. .
+                │           ├── footer.view.php                             # A. .
+                │           └── header.view.php                             # A. .
+                └── index.php                                               # A. .
 
     
 

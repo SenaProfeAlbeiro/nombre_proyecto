@@ -15,8 +15,8 @@ class Usuarios{
             $rol = new Usuario;
             $rol->setRolCodigo(null);
             $rol->setRolNombre($_POST['rol_nombre']);
-            $rol->registrarRol();  
-            header("Location: ?");         
+            $rol->registrarRol();
+            header("Location: ?c=Usuarios&a=rolConsultar");
         }
     }
     
@@ -25,5 +25,26 @@ class Usuarios{
         $roles = $roles->readRoles();
         require_once "vistas/modulos/usuarios/consultar_roles.vista.php";
     }
-        
+    
+    public function rolActualizar() {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $rolId = new Usuario;
+            $rolId = $rolId->getRolById($_GET["idRol"]);
+            require_once "vistas/modulos/usuarios/actualizar_rol.vista.php";
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            echo "Toy actualizando";
+            $rolAct = new Usuario;
+            $rolAct->setRolCodigo($_POST['rol_codigo']);
+            $rolAct->setRolNombre($_POST['rol_nombre']);
+            $rolAct->actualizarRol();
+            header("Location: ?c=Usuarios&a=rolConsultar");
+        }
+    }
+
+    public function rolEliminar() {        
+        $rol = new Usuario;
+        $rol->eliminarRol($_GET['idRol']);
+        header("Location: ?c=Usuarios&a=rolConsultar");
+    }
 }

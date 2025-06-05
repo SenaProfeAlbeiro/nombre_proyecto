@@ -192,17 +192,16 @@
         }
 
         # CU12 - Obtener el Rol por el código
-        public function getRolById($rolCode)
-        {
+        public function getRolById($rolCode) {
             try {
-                $sql = "SELECT * FROM ROLES WHERE rol_code=:rolCode";
+                $sql = "SELECT * FROM ROLES WHERE rol_codigo=:rolCodigo";
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->bindValue('rolCodigo', $rolCode);
                 $stmt->execute();
                 $rolDb = $stmt->fetch();
-                $rol = new User;
-                $rol->setRolCode($rolDb['rol_code']);
-                $rol->setRolName($rolDb['rol_name']);
+                $rol = new Usuario;
+                $rol->setRolCodigo($rolDb['rol_codigo']);
+                $rol->setRolNombre($rolDb['rol_nombre']);
                 return $rol;
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -210,16 +209,15 @@
         }
 
         # CU05 - Actualizar Rol
-        public function updateRol()
-        {
+        public function actualizarRol(){
             try {
                 $sql = 'UPDATE ROLES SET
-                                rol_code = :rolCode,
-                                rol_name = :rolName
-                            WHERE rol_code = :rolCode';
+                                rol_codigo = :rolCodigo,
+                                rol_nombre = :rolNombre
+                            WHERE rol_codigo = :rolCodigo';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $this->getRolCode());
-                $stmt->bindValue('rolName', $this->getRolName());
+                $stmt->bindValue('rolCodigo', $this->getRolCodigo());
+                $stmt->bindValue('rolNombre', $this->getRolNombre());
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -227,12 +225,11 @@
         }
 
         # CU06 - Eliminar Rol
-        public function deleteRol($rolCode)
-        {
+        public function eliminarRol($rolCode){
             try {
-                $sql = 'DELETE FROM ROLES WHERE rol_code = :rolCode';
+                $sql = 'DELETE FROM ROLES WHERE rol_codigo = :rolCodigo';
                 $stmt = $this->dbh->prepare($sql);
-                $stmt->bindValue('rolCode', $rolCode);
+                $stmt->bindValue('rolCodigo', $rolCode);
                 $stmt->execute();
             } catch (Exception $e) {
                 die($e->getMessage());

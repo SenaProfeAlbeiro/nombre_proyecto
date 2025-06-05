@@ -9,13 +9,15 @@
 
 <body>
 
-    <h1>Consular Roles</h1>    
+    <h1>Consular Roles</h1>
+    <a href="?c=Usuarios&a=rolRegistrar">Registrar Rol</a>
+    <br><br>
     <table>
         <thead>
             <tr>
                 <th>Código</th>
                 <th>NOMBRE</th>
-                <th>ACCIONES</th>                
+                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
@@ -24,14 +26,14 @@
                     <td><?php echo $rol->getRolCodigo(); ?></td>
                     <td><?php echo $rol->getRolNombre(); ?></td>
                     <td>
-                        <a href="?c=Users&a=rolUpdate&idRol=<?php echo $rol->getRolCodigo(); ?>">Actualizar</a>
-                        <a href="?c=Users&a=rolDelete&idRol=<?php echo $rol->getRolCodigo(); ?>">Eliminar</a>
+                        <a href="?c=Usuarios&a=rolActualizar&idRol=<?php echo $rol->getRolCodigo(); ?>">Actualizar</a>
+                        <a href="?c=Usuarios&a=rolEliminar&idRol=<?php echo $rol->getRolCodigo(); ?>">Eliminar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    
+
 </body>
 
 </html>

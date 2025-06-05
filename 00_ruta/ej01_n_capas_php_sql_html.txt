@@ -235,24 +235,84 @@
                 │           ├── customer.view.php               # A. Contenido principal del Vendedor
                 │           ├── footer.view.php                 # A. Plantilla que mantiene el pie de página de las páginas 'html' del Vendedor.
                 │           └── header.view.php                 # A. Plantilla que mantiene el encabezado de las páginas 'html' del Vendedor.
-                └── index.php                                   # A. Inicio del Proyecto (Enrutador a Controladores).
-
-    
+                └── index.php                                   # A. Inicio del Proyecto (Enrutador a Controladores).    
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.02.  Codificar el Modelo de Conexión a la Base de Datos: -----------------------------------------------------------------------------------------|
+|-- 06.03.  Codificar el Modelo de Conexión a la Base de Datos: -----------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+            01. Escrbir en el archivo 'models/DataBase.php' el siguiente código (Modelo de Conexión PDO): 
                     
-                    01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+                    01   <?php
+                    02     class DataBase {    
+                    03       public static function connection(){        
+                    04         $hostname = "localhost";
+                    05         $port = "3306";
+                    06         $database = "db_projecto";
+                    07         $username = "root";
+                    08         $password = "";
+                    09         $pdo = new PDO("mysql:host=$hostname;port=$port;dbname=$database;charset=utf8",$username,$password);
+                    10         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    11         return $pdo;
+                    12       }
+                    13     }
+                    14   ?>
+            
+                EXPLICACIÓN:   
                     
-            NOTA:   ⦿   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+                    ⦿   Descripción: El Modelo de Conexión a la Base de Datos en 'MySQL' es de la Clase 'PDO'.
+                    ⦿   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                    ⦿   En la línea 02, se crea una Clase con el nombre 'Database' y cierra el bloque en la línea 13.
+                    ⦿   En la línea 03, se crea una función (o método) pública(o) con el nombre 'connection()', de forma estática (Se usa directamente 
+                         el método al llamar la Clase, no es necesario crear un objeto) y cierra el bloque en la línea 12. Esta función retorna un
+                         objeto de la Clase 'PDO' con la cadena de conexión a la base de datos.
+                    ⦿   De las líneas 04 a la 08, se almacenan en variables los datos solicitados en una conexión a la Base de Datos 'MySQL'.
+                    ⦿   En la línea 09, se crea una instancia de la Clase 'PDO' y como parámetros se le pasa al Constructor de la Clase la sintaxis de 
+                         la cadena de conexión a la Base de Datos 'MySQL'.
+                    ⦿   En la línea 10, se utiliza el método 'setAttribute()' que, recibe los posibles errores que surjan al intentar conectar 
+                         con la Base de Datos 'MySQL'.
+                    ⦿   En la línea 11, se retorna un objeto '$pdo' de la Clase 'PDO' con la cadena de conexión a la base de datos.
+
+            02. Escrbir en el archivo 'index.php' el siguiente código: 
+
+                    01   <?php
+                    02     require_once "modelos/DataBase.php";
+                    03     $prueba_conn = Database::connection();
+                    04   ?>
+
+                EXPLICACIÓN:   
+                    
+                    ⦿   Descripción: Este código permite verificar si hay algún problema con la conexión a la Base de Datos.
+                    ⦿   Las líneas 01 y 04, son para crear un bloque de código 'php'.
+                    ⦿   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
+                    ⦿   En la línea 03, se crea una variable (objeto) para recibir el objeto '$pdo' que, tiene la conexión a la Base de Datos.
+                    
+                    ⦿   Posibles errores que se pueden presentar:
+                         
+                         Host:
+                         
+                         
+                         
+                         Puerto:
+                         
+
+
+                         Base de Datos:
+                         
+
+
+                         Usuario:
+                         
+
+
+                         Contraseña:
+
+
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.03.  Codificar el Modelo de Negocio (Diagrama de Clases): ----------------------------------------------------------------------------------------|
+|-- 06.04.  Codificar el Modelo de Negocio (Diagrama de Clases): ----------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Atributos, métodos setters, getters y sobrecarga constructores:
@@ -265,7 +325,7 @@
                     
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.04.  Codificar el Manejo de Sesiones (Diagrama de Casos de Uso): ---------------------------------------------------------------------------------|
+|-- 06.05.  Codificar el Manejo de Sesiones (Diagrama de Casos de Uso): ---------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
@@ -276,7 +336,7 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.05.  Implementar la vistas: ----------------------------------------------------------------------------------------------------------------------|
+|-- 06.06.  Implementar la vistas: ----------------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:

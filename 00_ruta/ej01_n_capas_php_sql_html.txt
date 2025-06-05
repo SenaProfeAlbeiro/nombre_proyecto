@@ -182,22 +182,22 @@
                                                                                                                                         # C = Carpetas
                                                                                                                                         # A = Archivos
 
-                ej01_n_capas_php_sql_html/                                  # C. Backend y Frontend de un proyecto móvil.
-                ├── assets/                                                 # C. Lógica del servidor Node.js para la gestión de datos y API.
-                │   ├── dashboard/                                          # C. Configuración del backend (base de datos, claves).
-                │   │   ├── css/                                            # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │   │   └── styles.css                                  # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │   ├── img/                                            # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │   │   └── logo.png                                    # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   │   └── js/                                             # A. Configuración principal del backend (variables de entorno, etc.).
-                │   │       └── scripts.js                                  # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │   └── landing/                                            # C. Configuración del backend (base de datos, claves).
-                │       ├── css/                                            # A. Configuración principal del backend (variables de entorno, etc.).
-                │       │   └── styles.css                                  # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       ├── img/                                            # A. Configuración principal del backend (variables de entorno, etc.).
-                │       │   └── logo.png                                    # C. Implementaciones concretas de las fuentes de datos (local, remota).
-                │       └── js/                                             # A. Configuración principal del backend (variables de entorno, etc.).
-                │           └── scripts.js                                  # C. Implementaciones concretas de las fuentes de datos (local, remota).
+                ej01_n_capas_php_sql_html/                                  # C. Raíz del Proyecto.
+                ├── assets/                                                 # C. Recursos estáticos.
+                │   ├── dashboard/                                          # C. Recursos estáticos para el 'Dashboard'.
+                │   │   ├── css/                                            # C. Estilos: Propiedades de las páginas 'html'.
+                │   │   │   └── styles.css                                  # A. .
+                │   │   ├── img/                                            # C. .
+                │   │   │   └── logo.png                                    # A. .
+                │   │   └── js/                                             # C. .
+                │   │       └── scripts.js                                  # A. .
+                │   └── landing/                                            # C. .
+                │       ├── css/                                            # C. .
+                │       │   └── styles.css                                  # A. .
+                │       ├── img/                                            # C. .
+                │       │   └── logo.png                                    # A. .
+                │       └── js/                                             # C. .
+                │           └── scripts.js                                  # A. .
                 └── controllers/                                            # C. Aplicación móvil de React Native.
                 │   ├── Dashboard.php                                       # C. Recursos estáticos (imágenes, fuentes).
                 │   ├── Landing.php                                         # C. Recursos estáticos (imágenes, fuentes).

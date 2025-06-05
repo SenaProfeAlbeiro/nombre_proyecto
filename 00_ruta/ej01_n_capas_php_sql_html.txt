@@ -259,6 +259,7 @@
                     13     }
                     14   ?>
             
+                
                 EXPLICACIÓN:   
                     
                     ⦿   Descripción: El Modelo de Conexión a la Base de Datos en 'MySQL' es de la Clase 'PDO'.
@@ -274,6 +275,7 @@
                          con la Base de Datos 'MySQL'.
                     ⦿   En la línea 11, se retorna un objeto '$pdo' de la Clase 'PDO' con la cadena de conexión a la base de datos.
 
+
             02. Escrbir en el archivo 'index.php' el siguiente código: 
 
                     01   <?php
@@ -281,13 +283,14 @@
                     03     $prueba_conn = Database::connection();
                     04   ?>
 
+                
                 EXPLICACIÓN:   
                     
                     ⦿   Descripción: Este código permite verificar si hay algún problema con la conexión a la Base de Datos.
                     ⦿   Las líneas 01 y 04, son para crear un bloque de código 'php'.
                     ⦿   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
                     ⦿   En la línea 03, se crea una variable (objeto) para recibir el objeto '$pdo' que, tiene la conexión a la Base de Datos.
-                    
+
                     ⦿   Posibles errores que se pueden presentar:
                          
                          Host:
@@ -309,10 +312,58 @@
                          Contraseña:
 
 
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 06.04.  Codificar el Inicio del Proyecto y el Enrutador a Controladores -----------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Modificar al archivo 'index.php' con el siguiente código:
+                    
+                    01   <?php
+                    02     require_once "modelos/DataBase.php";
+                    03     if (!isset($_REQUEST['c'])) {
+                    04       require_once "controladores/Usuarios.php";
+                    05       $controlador = new Usuarios;
+                    06       $controlador->rolRegistrar();
+                    07     } else {        
+                    08       $controlador = $_REQUEST['c'];
+                    09       require_once "controladores/" . $controlador . ".php";
+                    10       $controlador = new $controlador;        
+                    11       $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'main';
+                    12       call_user_func(array($controlador, $accion));
+                    13     }
+                    14   ?>
+
+                
+                EXPLICACIÓN:   
+                    
+                    ⦿   Descripción: El código de este archivo permite iniciar la aplicación y enrutar al controlador, dependiendo de los datos 
+                         que se envíen por la 'URL', donde 'c' es el controlador (Clase) y 'a' es la acción (función o método).
+                    ⦿   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                    ⦿   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
+                    ⦿   En la línea 03, 07 y 13, se crea una estructura de toma de decisión 'if-else', que sirve para saber cuál controlador (c) y
+                         acción (a) se debe buscar en la carpeta 'controllers/'.
+                    ⦿   En la línea 03, la variable super global '$_REQUEST['c']' busca en la 'URL' el valor de la variable 'c', mientras que la 
+                         función 'isset($_REQUEST['c'])' determina si tiene un valor (verdadero) o por el contrario es 'NULL' (falso). Con '!' se
+                         niega toda la expresión. En síntesis, si 'c' no existe en la 'URL', el resultado de la expresión es 'verdadero', lo que indica
+                         que se ejecutan las líneas 04, 05 y 06; si 'c' existe en la 'URL' y tiene valor, el resultado de la expresión es 'falsa', lo
+                         que indica que se ejecutan las líneas 08, 09, 10, 11 y 12.
+                    ⦿   En la línea 04, se lama el archivo (Clase) 'Landing.php'
+                    ⦿   En la línea 05, se crea una instancia de la Clase (objeto) de 'Landing' 
+                    ⦿   En la línea 06, se llama a la función (o método) 'main' de la clase.
+                    ⦿   En la línea 08, se pasa el valor de la variable 'c' a la variable '$controller'
+                    ⦿   En la línea 09, se llama el archivo (Clase) 'controllers/' . $controller . '.php'
+                    ⦿   En la línea 10, se crea una instancia de la Clase (objeto) 'controllers/' . $controller . '.php'
+                    ⦿   En la línea 11, se usa un 'if terniario' para pasarle el valor de la variable 'a' a la variable '$action'. Si la variable 'a'
+                         tiene valor, le pasa el valor a '$action', de lo contrario su valor será 'main'
+                    ⦿   En la línea 12, se pasan como parámetros a la función 'array()' el valor de las variables '$controller' y '$action'. Mientras
+                         que, con 'call_user_func()', se busca un archivo en la carpeta 'controllers/' con una Clase que se llame igual al valor de 
+                         '$controller' y una función que se llame igual al valor de '$action'.
+
+
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.04.  Codificar el Modelo de Negocio (Diagrama de Clases): ----------------------------------------------------------------------------------------|
+|-- 06.05.  Codificar el Modelo de Negocio (Diagrama de Clases): ----------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Atributos, métodos setters, getters y sobrecarga constructores:
@@ -325,7 +376,7 @@
                     
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.05.  Codificar el Manejo de Sesiones (Diagrama de Casos de Uso): ---------------------------------------------------------------------------------|
+|-- 06.06.  Codificar el Manejo de Sesiones (Diagrama de Casos de Uso): ---------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
@@ -336,7 +387,7 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.06.  Implementar la vistas: ----------------------------------------------------------------------------------------------------------------------|
+|-- 06.07.  Implementar la vistas: ----------------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:

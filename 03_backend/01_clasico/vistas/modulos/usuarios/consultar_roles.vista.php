@@ -12,7 +12,7 @@
     <h1>Consular Roles</h1>
     <a href="?c=Usuarios&a=rolRegistrar">Registrar Rol</a>
     <br><br>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <th>Código</th>

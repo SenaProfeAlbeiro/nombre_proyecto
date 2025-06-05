@@ -73,8 +73,13 @@
                     
                     01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
                     
-            NOTA:   ⦿   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
-
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  NOTAS:                       
+                    
+                    ⦿   Verificar que los puertos sean: En Apache (:80) y de MySQL (:3306).
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
@@ -111,7 +116,13 @@
 
             03. Abrir el 'XAMPP Control Panel' y ejecutar los servicios de 'Apache' y 'MySQL'.
 
-            NOTA:   ⦿   Verificar que los puertos sean: En Apache (:80) y de MySQL (:3306).
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  NOTAS:                       
+                    
+                    ⦿   Verificar que los puertos sean: En Apache (:80) y de MySQL (:3306).
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
@@ -258,27 +269,26 @@
                     12       }
                     13     }
                     14   ?>
-
             
-              ┌ -------------------------------------------------------------------------------------------------------------------------------------- ┐
-              |                                                                                                                                        |
-                EXPLICACIÓN:   
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
                     
-                    ⦿   Descripción: El Modelo de Conexión a la Base de Datos en 'MySQL' es de la Clase 'PDO'.
-                    ⦿   Las líneas 01 y 14, son para crear un bloque de código 'php'.
-                    ⦿   En la línea 02, se crea una Clase con el nombre 'Database' y cierra el bloque en la línea 13.
-                    ⦿   En la línea 03, se crea una función (o método) pública(o) con el nombre 'connection()', de forma estática (Se usa 
+                    ⦿   El código de este archivo, representa el Modelo de Conexión a la Base de Datos en 'MySQL' a través de la Clase 'PDO'.
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                    B.   En la línea 02, se crea una Clase con el nombre 'Database' y cierra el bloque en la línea 13.
+                    C.   En la línea 03, se crea una función (o método) pública(o) con el nombre 'connection()', de forma estática (Se usa 
                          directamente el método al llamar la Clase, no es necesario crear un objeto) y cierra el bloque en la línea 12. Esta función 
                          retorna un objeto de la Clase 'PDO' con la cadena de conexión a la base de datos.
-                    ⦿   De las líneas 04 a la 08, se almacenan en variables los datos solicitados en una conexión a la Base de Datos 'MySQL'.
-                    ⦿   En la línea 09, se crea una instancia de la Clase 'PDO' y como parámetros se le pasa al Constructor de la Clase la sintaxis 
+                    D.   De las líneas 04 a la 08, se almacenan en variables los datos solicitados en una conexión a la Base de Datos 'MySQL'.
+                    E.   En la línea 09, se crea una instancia de la Clase 'PDO' y como parámetros se le pasa al Constructor de la Clase la sintaxis 
                          de la cadena de conexión a la Base de Datos 'MySQL'.
-                    ⦿   En la línea 10, se utiliza el método 'setAttribute()' que, recibe los posibles errores que surjan al intentar conectar 
+                    F.   En la línea 10, se utiliza el método 'setAttribute()' que, recibe los posibles errores que surjan al intentar conectar 
                          con la Base de Datos 'MySQL'.
-                    ⦿   En la línea 11, se retorna un objeto '$pdo' de la Clase 'PDO' con la cadena de conexión a la base de datos.
-              |                                                                                                                                        |
-              └ -------------------------------------------------------------------------------------------------------------------------------------- ┘
-
+                    G.   En la línea 11, se retorna un objeto '$pdo' de la Clase 'PDO' con la cadena de conexión a la base de datos.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
             02. Escrbir en el archivo 'index.php' el siguiente código: 
 
@@ -286,19 +296,17 @@
                     02     require_once "modelos/DataBase.php";
                     03     $prueba_conn = Database::connection();
                     04   ?>
-
-
-            
-              ┌ -------------------------------------------------------------------------------------------------------------------------------------- ┐
-              |                                                                                                                                        |
-                EXPLICACIÓN:   
                     
-                    ⦿   Descripción: Este código permite verificar si hay algún problema con la conexión a la Base de Datos.
-                    ⦿   Las líneas 01 y 04, son para crear un bloque de código 'php'.
-                    ⦿   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
-                    ⦿   En la línea 03, se crea una variable (objeto) para recibir el objeto '$pdo' que, tiene la conexión a la Base de Datos.
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, permite verificar si hay algún problema de conexión a la Base de Datos.
 
-                    ⦿   Posibles errores que se pueden presentar:
+                    A.   Las líneas 01 y 04, son para crear un bloque de código 'php'.
+                    B.   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
+                    C.   En la línea 03, se crea una variable (objeto) para recibir el objeto '$pdo' que, tiene la conexión a la Base de Datos.
+                    D.   Posibles errores que se pueden presentar:
                          
                          Host:
                          
@@ -317,8 +325,8 @@
 
 
                          Contraseña:
-              |                                                                                                                                        |
-              └ -------------------------------------------------------------------------------------------------------------------------------------- ┘
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -342,34 +350,35 @@
                     13     }
                     14   ?>
                                                                                                                                                         
-              ┌ -------------------------------------------------------------------------------------------------------------------------------------- ┐
-              |                                                                                                                                        |
-                EXPLICACIÓN:                                                                                                                            
-                                                                                                                                                                
-                    ⦿   Descripción: El código de este archivo, permite iniciar la aplicación y enrutar al controlador, dependiendo de los datos       
-                         que se envíen por la 'URL', donde 'c' es el controlador (Clase) y 'a' es la acción (función o método).                        
-                    ⦿   Las líneas 01 y 14, son para crear un bloque de código 'php'.                                                                  
-                    ⦿   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
-                    ⦿   En las líneas 03, 07 y 13, se crea una estructura de toma de decisión 'if-else', que sirve para saber cuál controlador (c) y
-                         acción (a) se debe buscar en la carpeta 'controllers/'.
-                    ⦿   En la línea 03, la variable super global '$_REQUEST['c']' busca en la 'URL' el valor de la variable 'c', mientras que la 
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, permite iniciar la aplicación y enrutar al controlador, dependiendo de los datos que se envíen 
+                         por la 'URL', donde 'c' es el controlador (Clase) y 'a' es la acción (función o método).
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.                                                                  
+                    B.   En la línea 02, se llama al archivo (tipo Clase) de conexión a la Base de Datos.
+                    C.   En las líneas 03, 07 y 13, se crea una estructura de toma de decisión 'if-else', que sirve para saber cuál controlador (c) 
+                         y acción (a) se debe buscar en la carpeta 'controllers/'.
+                    D.   En la línea 03, la variable super global '$_REQUEST['c']' busca en la 'URL' el valor de la variable 'c', mientras que la 
                          función 'isset($_REQUEST['c'])' determina si tiene un valor (verdadero) o por el contrario es 'NULL' (falso). Con '!' se
                          niega toda la expresión. En síntesis, si 'c' no existe en la 'URL', el resultado de la expresión es 'verdadero', lo que 
                          indica que se ejecutan las líneas 04, 05 y 06; si 'c' existe en la 'URL' y tiene valor, el resultado de la expresión es 
                          'falsa', lo que indica que se ejecutan las líneas 08, 09, 10, 11 y 12.
-                    ⦿   En la línea 04, se lama el archivo (Clase) 'Landing.php'
-                    ⦿   En la línea 05, se crea una instancia de la Clase (objeto) de 'Landing' 
-                    ⦿   En la línea 06, se llama a la función (o método) 'main' de la clase.
-                    ⦿   En la línea 08, se pasa el valor de la variable 'c' a la variable '$controller'
-                    ⦿   En la línea 09, se llama el archivo (Clase) 'controllers/' . $controller . '.php'
-                    ⦿   En la línea 10, se crea una instancia de la Clase (objeto) 'controllers/' . $controller . '.php'
-                    ⦿   En la línea 11, se usa un 'if terniario' para pasarle el valor de la variable 'a' a la variable '$action'. Si la variable 'a'
-                         tiene valor, le pasa el valor a '$action', de lo contrario su valor será 'main'
-                    ⦿   En la línea 12, se pasan como parámetros a la función 'array()' el valor de las variables '$controller' y '$action'. Mientras
-                         que, con 'call_user_func()', se busca un archivo en la carpeta 'controllers/' con una Clase que se llame igual al valor de 
-                         '$controller' y una función que se llame igual al valor de '$action'.
-              |                                                                                                                                        |
-              └ -------------------------------------------------------------------------------------------------------------------------------------- ┘
+                    E.   En la línea 04, se lama el archivo (Clase) 'Landing.php'
+                    F.   En la línea 05, se crea una instancia de la Clase (objeto) de 'Landing' 
+                    G.   En la línea 06, se llama a la función (o método) 'main' de la clase.
+                    H.   En la línea 08, se pasa el valor de la variable 'c' a la variable '$controller'
+                    I.   En la línea 09, se llama el archivo (Clase) 'controllers/' . $controller . '.php'
+                    J.   En la línea 10, se crea una instancia de la Clase (objeto) 'controllers/' . $controller . '.php'
+                    K.   En la línea 11, se usa un 'if terniario' para pasarle el valor de la variable 'a' a la variable '$action'. Si la variable 
+                         'a' tiene valor, le pasa el valor a '$action', de lo contrario su valor será 'main'
+                    L.   En la línea 12, se pasan como parámetros a la función 'array()' el valor de las variables '$controller' y '$action'. 
+                         Mientras que, con 'call_user_func()', se busca un archivo en la carpeta 'controllers/' con una Clase que se llame igual al 
+                         valor de '$controller' y una función que se llame igual al valor de '$action'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
             02. Escrbir en el archivo 'controllers/Landing.php' el siguiente código:                    
                     
@@ -380,23 +389,22 @@
                     05       }        
                     06     }
                     07   ?>
-
-
-              ┌ -------------------------------------------------------------------------------------------------------------------------------------- ┐
-              |                                                                                                                                        |
-                EXPLICACIÓN:   
+              
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
                     
-                    ⦿   Descripción: El código de este archivo es una Clase que a través de sus funciones (o métodos), permite llamar modelos, 
-                         dependiendo de la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener
-                         información de la Base de Datos.
-                    ⦿   Las líneas 01 y 07, son para crear un bloque de código 'php'.
-                    ⦿   En la línea 02, se crea una Clase con el nombre 'Landing' y cierra el bloque en la línea 06.
-                    ⦿   En la línea 03, se crea una función (o método) pública(o) con el nombre 'main()' y cierra el bloque en la línea 12. Esta 
-                         función ejecuta instrucciones para iniciar el controlador, regularmente llama una vista.
-                    ⦿   En la línea 02, se llama al archivo 'views/company/index.view.php'; este es un archivo de vista en html.
-              |                                                                                                                                        |
-              └ -------------------------------------------------------------------------------------------------------------------------------------- ┘
+                    ⦿   El código de este archivo, es una Clase que a través de sus funciones (o métodos), permite llamar modelos, dependiendo de 
+                         la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener información de la 
+                         Base de Datos.
 
+                    A.   Las líneas 01 y 07, son para crear un bloque de código 'php'.
+                    B.   En la línea 02, se crea una Clase con el nombre 'Landing' y cierra el bloque en la línea 06.
+                    C.   En la línea 03, se crea una función (o método) pública(o) con el nombre 'main()' y cierra el bloque en la línea 12. Esta 
+                         función ejecuta instrucciones para iniciar el controlador, regularmente llama una vista.
+                    D.   En la línea 02, se llama al archivo 'views/company/index.view.php'; este es un archivo de vista en html.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
             03. Escrbir en el archivo 'views/company/index.view.php' el siguiente código:                    
                     
@@ -412,17 +420,17 @@
                     10     <a href="?c=Login">Iniciar Sesión</a>
                     11   </body>
                     12   </html>
-
-
-              ┌ -------------------------------------------------------------------------------------------------------------------------------------- ┐
-              |                                                                                                                                        |
-                EXPLICACIÓN:   
                     
-                    ⦿   Descripción: El código de este archivo es una Clase que a través de sus funciones (o métodos), permite llamar modelos, 
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus funciones (o métodos), permite llamar modelos, 
                          dependiendo de la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener
                          información de la Base de Datos.
-              |                                                                                                                                        |
-              └ -------------------------------------------------------------------------------------------------------------------------------------- ┘
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
 
 
 

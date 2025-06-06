@@ -442,7 +442,9 @@
                          diseño en el navegador
                     G.   En la línea 09, se encuentra la etiqueta '<h1></h1>', que muestra el título más grade de '6' posibles, en el contenido
                     H.   En la línea 10, se encuentra la etiqueta '<a></a>' con su propiedad 'href', que permiten la navegaciòn entre secciones,
-                         interna y externa
+                         interna y externa. En este código en particular 'href' envía a la 'URL' el valor '?c=Login', lo que quiere decir, que se 
+                         envía a la variable 'c' el valor 'Login' y este, es un controlador para iniciar sesión. Esta acción recarga la aplicación
+                         desde el archivo 'index.php' que, como ya se vio, busca el controlador y la acción a ejecutarse
                     
                 |                                                                                                                                      |
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘

@@ -14,14 +14,22 @@
                 if ($profile) {
                     $activo = $profile->getUsuarioEstado();
                     if ($activo != 0) {
-                        echo "El usuario SI está activo";
+                        $sesion = $profile->getRolCodigo();
+                        if ($sesion == 1) {
+                            $_SESSION['sesion'] = 'admin';                            
+                        } elseif ($sesion == 2) {
+                            $_SESSION['sesion'] = 'customer';                            
+                        } elseif ($sesion == 3) {
+                            $_SESSION['sesion'] = 'seller';                            
+                        } 
+                        header("Location:?c=PanelControl");                    
                     } else {
-                        echo "El usuario NO está activo";
+                        require_once "vistas/empresa/iniciar_sesion.vista.php";
+                        echo "EL USUARIO NO ESTÁ ACTIVO";
                     }                    
-                    // header("Location: ?c=PanelControl");
                 } else {
-                    echo "El usuario NO EXISTE";
-                    // header("Location: ?c=IniciarSesion");
+                    require_once "vistas/empresa/iniciar_sesion.vista.php";
+                    echo "EL USUARIO NO EXISTE";                    
                 }
             }
         }

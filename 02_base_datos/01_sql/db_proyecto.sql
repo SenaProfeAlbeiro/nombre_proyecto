@@ -24,3 +24,15 @@ CREATE TABLE USUARIOS (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE = InnoDB;
+
+INSERT INTO ROLES VALUES 
+(null, 'admin'),
+(null, 'customer'),
+(null, 'seller');
+
+INSERT INTO USUARIOS VALUES 
+(1, null, 'Pepito', 'Perez', '123', 'pepito@gmail.com', sha1('12345'), 1),
+(2, null, 'Marinita', 'García', '456', 'marinita@garcia.com', sha1('12345'), 1),
+(2, null, 'Vicente', 'Fernandez', '789', 'vicente@fernandez.com', sha1('12345'), 0),
+(3, null, 'Pedro', 'Infante', '012', 'pedro@infante.com', sha1('12345'), 1),
+(3, null, 'Juan', 'Charrasquiao', '345', 'juan@charrasquia.com', sha1('12345'), 0);

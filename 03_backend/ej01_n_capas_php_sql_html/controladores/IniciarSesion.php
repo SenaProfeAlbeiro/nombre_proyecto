@@ -10,11 +10,18 @@
                     $_POST['usuario_email'],
                     $_POST['usuario_pass']
                 );
-                $profile = $profile->login();
+                $profile = $profile->login();                
                 if ($profile) {
-                    header("Location: ?c=PanelControl");
+                    $activo = $profile->getUsuarioEstado();
+                    if ($activo != 0) {
+                        echo "El usuario SI está activo";
+                    } else {
+                        echo "El usuario NO está activo";
+                    }                    
+                    // header("Location: ?c=PanelControl");
                 } else {
-                    header("Location: ?c=IniciarSesion");
+                    echo "El usuario NO EXISTE";
+                    // header("Location: ?c=IniciarSesion");
                 }
             }
         }

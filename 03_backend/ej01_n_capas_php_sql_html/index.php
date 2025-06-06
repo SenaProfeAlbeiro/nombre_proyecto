@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once "modelos/DataBase.php";
   if (!isset($_REQUEST['c'])) {
     require_once "controladores/Empresa.php";

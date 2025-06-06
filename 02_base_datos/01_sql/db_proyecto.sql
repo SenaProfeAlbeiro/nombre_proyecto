@@ -1,5 +1,5 @@
-CREATE DATABASE DB_PROJECTO DEFAULT CHARACTER SET utf8 ;
-USE DB_PROJECTO ;
+CREATE DATABASE DB_PROJECT DEFAULT CHARACTER SET utf8 ;
+USE DB_PROJECT ;
 
 CREATE TABLE ROLES (
   rol_codigo INT NOT NULL AUTO_INCREMENT,
@@ -31,8 +31,8 @@ INSERT INTO ROLES VALUES
 (null, 'seller');
 
 INSERT INTO USUARIOS VALUES 
-(1, null, 'Pepito', 'Perez', '123', 'pepito@gmail.com', sha1('12345'), 1),
-(2, null, 'Marinita', 'García', '456', 'marinita@garcia.com', sha1('12345'), 1),
-(2, null, 'Vicente', 'Fernandez', '789', 'vicente@fernandez.com', sha1('12345'), 0),
-(3, null, 'Pedro', 'Infante', '012', 'pedro@infante.com', sha1('12345'), 1),
-(3, null, 'Juan', 'Charrasquiao', '345', 'juan@charrasquia.com', sha1('12345'), 0);
+(1, null, 'Pepito', 'Perez', '123123123', 'pepito@gmail.com', sha1('12345'), 1),
+(2, null, 'Marinita', 'García', '456456456', 'marinita@garcia.com', sha1('12345'), 1),
+(2, null, 'Vicente', 'Fernandez', '789789789', 'vicente@fernandez.com', sha1('12345'), 0),
+(3, null, 'Pedro', 'Infante', '321321321', 'pedro@infante.com', sha1('12345'), 1),
+(3, null, 'Juan', 'Charrasquiao', '654654654', 'juan@charrasquiao.com', sha1('12345'), 0);

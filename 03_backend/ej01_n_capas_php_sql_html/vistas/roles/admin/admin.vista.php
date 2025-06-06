@@ -6,7 +6,10 @@
     <title>Administrador</title>
 </head>
 <body>
-    <h1>Bienvenido Administrador</h1>
+    <h1>Bienvenido Administrador</h1>    
+    <h4>Módulo Usuarios</h4>
+    <a href="?c=Usuarios&a=rolConsultar">Roles</a>
+    <h4>Perfil</h4>
     <a href="?c=CerrarSesion">Cerrar Sesión</a>
 </body>
 </html>

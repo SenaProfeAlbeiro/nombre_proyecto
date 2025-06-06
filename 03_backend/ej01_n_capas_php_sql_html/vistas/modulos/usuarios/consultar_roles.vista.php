@@ -10,6 +10,8 @@
 <body>
 
     <h1>Consular Roles</h1>
+    <a href="?c=PanelControl">Volver</a>
+    <br><br>
     <a href="?c=Usuarios&a=rolRegistrar">Registrar Rol</a>
     <br><br>
     <table border="1">

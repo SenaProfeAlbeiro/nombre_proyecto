@@ -385,7 +385,7 @@
                     01   <?php
                     02     class Landing {
                     03       public function main(){
-                    04         require_once "views/company/index.vista.php";
+                    04         require_once "views/company/index.view.php";
                     05       }        
                     06     }
                     07   ?>
@@ -402,7 +402,7 @@
                     B.   En la línea 02, se crea una Clase con el nombre 'Landing' y cierra el bloque en la línea 06.
                     C.   En la línea 03, se crea una función (o método) pública(o) con el nombre 'main()' y cierra el bloque en la línea 12. Esta 
                          función ejecuta instrucciones para iniciar el controlador, regularmente llama una vista.
-                    D.   En la línea 02, se llama al archivo 'views/company/index.view.php'; este es un archivo de vista en html.
+                    D.   En la línea 02, se llama al archivo 'views/company/index.view.php'. Este archivo, es una vista en 'html'.
                 |                                                                                                                                      |
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 

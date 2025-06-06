@@ -444,7 +444,7 @@
 
                     B.   En la línea 02, se crea una Clase con el nombre 'Landing' y cierra el bloque en la línea 06.
 
-                    C.   En la línea 03, se crea una función (o método) pública(o) con el nombre 'main()' y cierra el bloque en la línea 12. Esta 
+                    C.   En la línea 03, se crea una función (o método) pública(o) con el nombre 'main()' y cierra el bloque en la línea 05. Esta 
                          función ejecuta instrucciones para iniciar el controlador, regularmente llama una vista.
 
                     D.   En la línea 02, se llama al archivo 'views/company/index.view.php'. Este archivo, es una vista en 'html'.
@@ -595,13 +595,62 @@
                          'action' y 'method' del formulario. En este mismo input está la propiedad y valor 'value="Enviar"' que, indica el nombre
                          del control tipo botón.
                     
-                    H.   En la línea 21, se encuentra la etiqueta '<a></a>' con su propiedad 'href', que permite la navegaciòn entre secciones,
+                    M.   En la línea 21, se encuentra la etiqueta '<a></a>' con su propiedad 'href', que permite la navegaciòn entre secciones,
                          interna y externa; por el método 'GET'. En este código en particular, 'href' envía a la 'URL' '?', para cargar iniciar la 
-                         aplicación desde el archivo 'index.php', controlador 'Landing.php' y función 'main'.
-                    
+                         aplicación desde el archivo 'index.php', controlador 'Landing.php' y función 'main'.                    
                 |                                                                                                                                      |
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
+
+            05. Escrbir en el archivo 'controllers/Login.php' el siguiente código:                    
+                    
+                    01   <?php
+                    02    class Login {
+                    03      public function main(){
+                    04        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    05          require_once "views/company/login.view.php";
+                    06        }
+                    07        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    08          $email = $_POST['user_email'];
+                    09          $pass = $_POST['user_pass'];
+                    10          echo $email . " - " . $pass;
+                    11        }
+                    12      }        
+                    13    }
+                    14   ?>
+              
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus funciones (o métodos), permite llamar modelos, dependiendo de 
+                         la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener información de la 
+                         Base de Datos.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+
+                    B.   En la línea 02, se crea una Clase con el nombre 'Login' y cierra el bloque en la línea 13.
+
+                    C.   En la línea 03, se crea una función (o método) pública(o) con el nombre 'main()' y cierra el bloque en la línea 12. Esta 
+                         función ejecuta instrucciones para iniciar el controlador. Contiene dos condicionales 'if' que, ejecutan instrucciones de 
+                         acuerdo al método, si es 'GET', muestra la vista del formulario; si es 'POST', captura los datos del formulario y los procesa.
+                    
+                    D.   En la línea 04, se propone una estructura condicional 'if' que cierra en la línea 06, para evaluar el método 'GET' en la 
+                         'URL'. Con la expresión '$_SERVER['REQUEST_METHOD']' se captuara el método de envío en la 'URL' y se compara 'GET', para
+                         determinar si es verdadero o falso.
+
+                    E.   En la línea 05, se llama a la vista 'views/company/login.view.php' que contiene el Formulario.
+                    
+                    F.   En la líneas 08 y 09, se crean dos variables '$email' y '$pass' que reciben los datos de del formulario a través del método
+                         '$_POST['user_email']' y '$_POST['user_pass']' respectivamente.
+                    
+                    G.   En la línea 10, se muestra en el navegador el '$email' y el '$pass' enviados desde el formulario con la palabra reservada 
+                         'echo'.
+                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|

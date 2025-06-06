@@ -361,7 +361,7 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.04.  Codificar los archivos para Iniciar el Proyecto y el Enrutador a Controladores --------------------------------------------------------------|
+|-- 06.04.  Codificar la vistas 'index.view.php' y 'login.view.php', los controladores 'Landing.php' y 'Login.php' y el 'index.php' ---------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Escrbir en el archivo 'views/company/index.view.php' el siguiente código:                    
@@ -473,7 +473,7 @@
                 |                                                                                                                                      |
                   EXPLICACIÓN:   
                     
-                    ⦿   El código de este archivo, permite iniciar la aplicación y enrutar al controlador, dependiendo de los datos que se envíen 
+                    ⦿   El código de este archivo, permite iniciar la aplicación y enrutar a un controlador, dependiendo de los datos que se envíen 
                          por la 'URL', donde 'c' es el controlador (Clase) y 'a' es la acción (función o método).
 
                 |--------------------------------------------------------------------------------------------------------------------------------------|
@@ -524,8 +524,8 @@
                     07   </head>
                     08   <body>
                     09     <h1>Empresa</h1>
-                    10     <form action="" method="POST">
-                    11       <h3>Iniciar Sesión</h3>
+                    10     <h3>Iniciar Sesión</h3>
+                    11     <form action="" method="POST">
                     12       <div>
                     13         <label for="">Email</label>
                     14         <input type="email" name="user_email" placeholder="correo@dominio.com">
@@ -574,13 +574,14 @@
 
                     G.   En la línea 09, se encuentra la etiqueta '<h1></h1>', que muestra el título más grade de '6' posibles, en el contenido.
 
-                    H.   Las líneas 10 y 24, indican la apertura '<form>' y cierre '</form>' de la etiqueta 'form'. Contiene la estructura de un
+                    I.   En la línea 10, se encuentra la etiqueta '<h3></h3>', que muestra un título intermedio en el contenido.
+
+                    H.   Las líneas 11 y 24, indican la apertura '<form>' y cierre '</form>' de la etiqueta 'form'. Contiene la estructura de un
                          formulario. Cuenta con la propiedad 'action', que sirve para indicarle dónde se procesaran los datos del formulario, en el
-                         caso del ejemplo, no tiene valor, ya que los datos se procesarán en el controlador 'controllers/Landing.php'. Por otro 
+                         caso del ejemplo, no tiene valor, ya que los datos se procesarán en el controlador 'controllers/Login.php'. Por otro 
                          lado, la propiedad y valor 'method="POST"', le indican a la 'URL' que los datos serán procesados por el método 'POST', es
-                         decir, estarán en la 'URL' por seguridad.                    
+                         decir, estarán ocultos en la 'URL' por seguridad.                    
                     
-                    I.   En la línea 11, se encuentra la etiqueta '<h3></h3>', que muestra un título intermedio en el contenido.
                     
                     J.   Las líneas 12 y 25, 16 y 19, 20 y 23; indican la apertura '<div>' y cierre '</div>' de la etiqueta 'div'. Sirve como 
                          contenedor de otras etiquetas 'html', en este caso, contendrá los controles del formulario.
@@ -654,13 +655,82 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 06.05.  Codificar la vista 'admin.view.php' y los controladores 'Dashboard.php' y 'Logout.php' ------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Modificar el código del archivo 'controllers/Login.php' de la siguiente forma:
+
+                    01   <?php
+                    02     class Login {
+                    03       public function main(){
+                    04         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    05           require_once "views/company/login.view.php";
+                    06         }
+                    07         if ($_SERVER['REQUEST_METHOD'] == 'POST') {        
+                    08           header("Location: ?c=Dashboard");
+                    09         }
+                    10       }        
+                    11     }
+                    12   ?>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   Se modifica este archivo para que cargue en la 'URL' el controlador 'Dashboard.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Se elimina el código desde las líneas 08 a 10.
+
+                    B.   En la línea 08, se recarga la 'URL' a través del método 'GET' con ayuda del método 'header()'. La 'URL' queda con la variable 
+                         'c' y el dato del controlador 'Dahboard', quedando así: '/?c=Dahboard'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            02. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+                    
+                    01   <!DOCTYPE html>
+
+
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |-- 06.05.  Codificar el Diagrama de Clases I. Atributos, métodos setters, getters y sobrecarga constructores: ------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Escrbir en el archivo 'models/Rol.php' el siguiente código: 
             
-            
+                    01   <?php
+
                     
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus funciones (o métodos), permite llamar modelos, dependiendo de 
+                         la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener información de la 
+                         Base de Datos.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |-- 06.06.  Codificar el Diagrama de Clases II. Métodos CRUD de persistencia a la Base de Datos (Funcionalidades - Diagrama de Casos de Uso): -----------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|

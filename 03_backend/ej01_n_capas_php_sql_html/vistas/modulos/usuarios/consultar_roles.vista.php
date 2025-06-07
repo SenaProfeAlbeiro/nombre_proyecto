@@ -8,7 +8,11 @@
 </head>
 
 <body>
-
+    <h1>Bienvenido <?php echo $this->sesion ?></h1>
+    <h4>Módulo Usuarios</h4>
+    <a href="?c=Usuarios&a=rolConsultar">Roles</a>
+    <h4>Perfil</h4>
+    <a href="?c=CerrarSesion">Cerrar Sesión</a>
     <h1>Consular Roles</h1>
     <a href="?c=PanelControl">Volver</a>
     <br><br>

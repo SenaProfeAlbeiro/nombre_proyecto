@@ -150,7 +150,7 @@
                         $userDb['usuario_pass'],
                         $userDb['usuario_estado']
                     );
-                    // unset($user->dbh);
+                    unset($user->dbh);
                     return $user;
                 } else {
                     return false;

@@ -3,7 +3,11 @@
     class IniciarSesion {
         public function main(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                require_once "vistas/empresa/iniciar_sesion.vista.php";
+                if (empty($_SESSION['sesion'])) {                    
+                    require_once "vistas/empresa/iniciar_sesion.vista.php";
+                } else {
+                    header("Location: ?c=PanelControl");
+                }                
             }
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $profile = new Usuario(
@@ -20,8 +24,10 @@
                         } elseif ($sesion == 2) {
                             $_SESSION['sesion'] = 'customer';                            
                         } elseif ($sesion == 3) {
-                            $_SESSION['sesion'] = 'seller';                            
-                        } 
+                            $_SESSION['sesion'] = 'seller';
+                        }
+                        $profile = serialize($profile);
+                        $_SESSION['profile'] = $profile; 
                         header("Location:?c=PanelControl");                    
                     } else {
                         require_once "vistas/empresa/iniciar_sesion.vista.php";

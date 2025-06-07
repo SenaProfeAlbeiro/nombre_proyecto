@@ -648,8 +648,7 @@
                          '$_POST['user_email']' y '$_POST['user_pass']' respectivamente.
                     
                     G.   En la línea 10, se muestra en el navegador el '$email' y el '$pass' enviados desde el formulario con la palabra reservada 
-                         'echo'.
-                    
+                         'echo'.                    
                 |                                                                                                                                      |
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
@@ -658,7 +657,78 @@
 |-- 06.05.  Codificar la vista 'admin.view.php' y los controladores 'Dashboard.php' y 'Logout.php' ------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. Modificar el código del archivo 'controllers/Login.php' de la siguiente forma:
+            01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+                    
+                    01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Logout">Cerrar Sesión</a>
+                    11     <div>    
+                    12       <div>
+                    13         <h3>Roles</h3>
+                    14         <div>
+                    15           <a href="?c=Users&a=createRol">Registrar Rol</a>
+                    16         </div>
+                    17         <div>
+                    18           <a href="?c=Users&a=readRoles">Consultar Roles</a>
+                    19         </div>
+                    20       </div>
+                    21       <div>    
+                    22         <h3>Usuarios</h3>
+                    23         <div>
+                    24           <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    25         </div>
+                    26         <div>
+                    27           <a href="?c=Users&a=readUsers">Consultar Usuarios</a>
+                    28         </div>
+                    29       </div>
+                    30     </div>
+                    31   </body>
+                    32   </html>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es XXXXXXX.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   XXXXXXXXXXXX.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            02.  Escrbir en el archivo 'controllers/Dashboard.php' el siguiente código:
+
+                    01   <?php
+                    02     class Dashboard{
+                    03       public function main(){
+                    04         require_once 'views/roles/admin/admin.view.php';
+                    05       }
+                    06     }
+                    07   ?>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es XXXXXXX.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   XXXXXXXXXXXX.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+                
+
+            03. Modificar el código del archivo 'controllers/Login.php' de la siguiente forma:
 
                     01   <?php
                     02     class Login {
@@ -689,6 +759,36 @@
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
+            04.  Escrbir en el archivo 'controllers/Logout.php' el siguiente código:
+
+                    01   <?php
+                    02     class Logout {
+                    03       public function main(){
+                    04         header("Location: ?");
+                    05       }        
+                    06     }
+                    07   ?>                    
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es XXXXXXX.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   XXXXXXXXXXXX.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+                
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 06.06.  Codificar la vistas de 'roles' y 'users' y el controlador 'Users.php' -----------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+                    
+                    01   <!DOCTYPE html>
+
             02. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
@@ -696,8 +796,9 @@
 
 
 
+
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.05.  Codificar el Diagrama de Clases I. Atributos, métodos setters, getters y sobrecarga constructores: ------------------------------------------|
+|-- 06.06.  Codificar el Diagrama de Clases I. Atributos, métodos setters, getters y sobrecarga constructores: ------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Escrbir en el archivo 'models/Rol.php' el siguiente código: 

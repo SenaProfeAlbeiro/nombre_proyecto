@@ -152,7 +152,9 @@
             
             02. Se abrirá un 'Bloc de Notas'. Dar click a la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
             
-            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '80' y dar click a .
+            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '80' y dar click a 'Buscar siguiente'.
+            
+            03. Reemplazar donde se encuentra '80' con el puerto de trabajo, por ejemplo, '8080' .
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -5,7 +5,7 @@
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||                                                                                                                                                    |||
-||| --  01.  CONFIGURACIÓN                                                                                                                             |||
+||| --  01.  EJECUCIÓN                                                                                                                                 |||
 ||| --  02.  ARQUITECTURA                                                                                                                              |||
 ||| --  03.  STACK                                                                                                                                     |||
 ||| --  04.  AMBIENTE                                                                                                                                  |||
@@ -22,22 +22,98 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||--------------------------------------------------------------- 01.  CONFIGURACIÓN -----------------------------------------------------------------|||
+|||----------------------------------------------------------------- 01.  EJECUCIÓN -------------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 01.01.  XXXXXXXXXXXXXXXXXXXXXXXXXXX: ----------------------------------------------------------------------------------------------------------------|
+|-- 01.01.  Poner en marcha el proyecto: ----------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
-                    
-                    01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
-                    
-            NOTA:   ⦿   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+            01. Garantizar el ambiente de desarrollo (Ver apartado 04. AMBIENTE).
+            
+            02. Clonar el proyecto desde github en 'C:\xampp\htdocs' (Ver apartado 01.03. Clonar un proyecto 'Github').
+            
+            03. Abrir el proyecto en Visual Studio Code.
+            
+            04. Abrir 'XAMPP' y ejecutar los servicios de 'Apache' y 'MySQL'.
+
+            05. Abrir un navegador (preferiblemente Google Chrome) a través de los siguientes enlaces:
+            
+                    http://localhost/ej01_n_capas_php_sql_html/
+
+                    http://localhost/phpmyadmin/            
+            
+            NOTA:   ⦿   Si el puerto de 'Apache' en 'XAMPP' es diferente al '80' y si es posible, cambiar el puerto al '80' (Ver apartado 01.04. 
+                         Cambiar los puertos de 'Apache' en 'XAMPP'); si no es posible, agregar el puerto al 'localhost', por ejemplo, si el puerto 
+                         es '8080' entonces debería quedar así:
+
+                         http://localhost:8080/ej01_n_capas_php_sql_html/
+
+                         http://localhost:8080/phpmyadmin/           
+            
+            
+                    ⦿   Si el puerto de 'MySQL' en 'XAMPP' es diferente al '3306' y si es posible, cambiar el puerto al '3306' (Ver apartado 01.04. 
+                         Cambiar los puertos de 'MySQL' en 'XAMPP'); si no es posible, cambiar el puerto en la cadena de conexión (Ver apartado 06.03. 
+                         Codificar el Modelo de Conexión a la Base de Datos) 
+                                    
+            06. Subir la base de datos (Ver el apartado 05. BASE DE DATOS).
+
+            07. Comprobar que se ejecute correctamente la aplicación.
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.02.  Subir el proyecto a un repositorio 'Github': ------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            Para evitar confusiones y seguir los pasos correctamente, la carpeta raíz del proyecto se llamará 'ej01_n_capas_php_sql_html'.
+            
+            01. Verificar que no haya una cuenta de 'Github' asociada al computador, para ello, debe abrir el 'Panel de Control', dar clic en 'Cuentas 
+                de usuario / Administrar credenciales de Windows'. Si hay una cuenta asociada ''
+            
+            02. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. Dar clic a 'New'.
+                En el control de texto 'Repository name', escribir el nombre de la carpeta raíz de su proyecto (ejemplo, 'ej01_n_capas_php_sql_html'. 
+                La carpeta raíz no debe tener espacios, ni caracteres compuesto, ni caracteres especiales) y dar clic en 'Create Repository'.
+
+            NOTA:   ⦿   Si no tiene cuenta en 'GitHub', debe crear una (Ver el apartado 04.03. Crear cuenta en 'Github').
+            
+            03. Clic derecho sobre la carpeta raíz (ejemplo, 'ej01_n_capas_php_sql_html') y seleccionar la opción 'Open Git Bash here'; si no se 
+                encuentra la opción, hay que instalar 'Git' (ver el apartado 04.04. Instalar Git).
+            
+            04. En el 'Git Bash' escribir lo siguiente:
+
+                    $ git config --global user.name "nombre de su cuenta"
+                    $ git config --global user.email "correo de su cuenta"
+
+                    $ git init
+                    $ git branch -M main
+                    $ git remote add origin https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
+                    $ git add .
+                    $ git commit -m "Subiendo Proyecto"
+                    $ git commit -m "Subiendo Proyecto"
+
+            
+            04. 
+            
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.03.  Clonar un proyecto 'Github': ----------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. .
 
 
-3.3.	Subir el proyecto a un repositorio.
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.04.  Cambiar los puertos de 'Apache' en 'XAMPP': -------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. .
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.05.  Cambiar los puertos de 'MySQL' en 'XAMPP': -------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. .
+
 
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
@@ -123,6 +199,22 @@
                     ⦿   Verificar que los puertos sean: En Apache (:80) y de MySQL (:3306).
                 |                                                                                                                                      |
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 04.03.  Crear cuenta en 'Github': -------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Descargar 'XAMPP': https://www.apachefriends.org/es/download.html.
+
+            02. Instalar XAMPP.
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 04.03.  Instalar Git: -------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Descargar 'XAMPP': https://www.apachefriends.org/es/download.html.
+
+            02. Instalar XAMPP.
 
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
@@ -289,8 +381,7 @@
                     
                     ⦿   El código de este archivo, representa el Modelo de Conexión a la Base de Datos en 'MySQL' a través de la Clase 'PDO'.
 
-                |--------------------------------------------------------------------------------------------------------------------------------------|
-                
+                |--------------------------------------------------------------------------------------------------------------------------------------|                
 
                     A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
 

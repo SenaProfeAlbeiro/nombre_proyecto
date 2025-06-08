@@ -68,7 +68,13 @@
             Para evitar confusiones y seguir los pasos correctamente, la carpeta raíz del proyecto se llamará 'ej01_n_capas_php_sql_html'.
             
             01. Verificar que no haya una cuenta de 'Github' asociada al computador, para ello, debe abrir el 'Panel de Control', dar clic en 'Cuentas 
-                de usuario / Administrar credenciales de Windows'. Si hay una cuenta asociada ''
+                de usuario / Administrar credenciales de Windows'. Si hay una cuenta asociada 'git:https://github.com', dar clic sobre la cuenta y clic
+                sobre la opción 'Quitar'. 
+            
+            NOTA:   ⦿   De no funcionar este método porque no tiene acceso al Panel de control, pruebe abriendo el 'Windows PowerShell' y digite el 
+                         siguiente comando:
+
+                         PS C:\..\..> echo "protocol=https`nhost=github.com`n" | git credential-manager erase
             
             02. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. Dar clic a 'New'.
                 En el control de texto 'Repository name', escribir el nombre de la carpeta raíz de su proyecto (ejemplo, 'ej01_n_capas_php_sql_html'. 
@@ -89,11 +95,21 @@
                     $ git remote add origin https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
                     $ git add .
                     $ git commit -m "Subiendo Proyecto"
-                    $ git commit -m "Subiendo Proyecto"
+                    $ git push -u origin main
 
+            05. Va a aparecer una ventana denominada 'Connect to Github', dar clic en la opción 'Sign in with your browser', dar clic en 'Authentication 
+                Succeeded'. Verificar que se haya abierto en el navegador que tiene abierta la cuenta, de lo contrario hay que escribir nuevamente las
+                credenciales de 'Github'. En el 'Git Bash' debe aparecer texto similar al siguiente:
+
+                    Enumerating objects: 3, done.
+                    Counting objects: 100% (3/3), done.
+                    Writing objects: 100% (3/3), 226 bytes | 226.00 KiB/s, done.
+                    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+                    To https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
+                    * [new branch]      main -> main
+                    branch 'main' set up to track 'origin/main'.
             
-            04. 
-            
+            06. Actualizar la ventana del navegador donde se encuentra abierta su cuenta de 'Github'
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |-- 01.03.  Clonar un proyecto 'Github': ----------------------------------------------------------------------------------------------------------------|

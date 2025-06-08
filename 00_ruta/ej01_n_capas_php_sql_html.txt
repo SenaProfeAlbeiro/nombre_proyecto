@@ -14,11 +14,11 @@
 ||| --  07. PRUEBAS                                                                                                                                    |||
 ||| --  08. DESPLIEGUE                                                                                                                                 |||
 ||| --  ANEXOS: TENER EN CUENTA                                                                                                                        |||
-||| --  ------- AX_01. Subir el proyecto a un repositorio 'Github'                                                                                   |||
-||| --  ------- AX_02. Clonar un proyecto 'Github'                                                                                                   |||
-||| --  ------- AX_03. Cambiar los puertos de 'Apache' en 'XAMPP'                                                                                    |||
-||| --  ------- AX_04. Cambiar los puertos de 'MySQL' en 'XAMPP'                                                                                     |||
-||| --  ------- AX_05. Poner en marcha el proyecto                                                                                                   |||
+||| --  ------- AX_01. Subir el proyecto a un repositorio 'Github'                                                                                     |||
+||| --  ------- AX_02. Clonar un proyecto 'Github'                                                                                                     |||
+||| --  ------- AX_03. Cambiar los puertos de 'Apache' en 'XAMPP'                                                                                      |||
+||| --  ------- AX_04. Cambiar los puertos de 'MySQL' en 'XAMPP'                                                                                       |||
+||| --  ------- AX_05. Poner en marcha el proyecto                                                                                                     |||
 |||                                                                                                                                                    |||
 ||| --  AUTOR:  ALBEIRO RAMOS. SENA, 2025.                                                                                                             |||
 |||                                                                                                                                                    |||

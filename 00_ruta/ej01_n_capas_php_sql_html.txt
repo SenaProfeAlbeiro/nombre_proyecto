@@ -126,7 +126,7 @@
 
             03. Dar click a la opción '<> Code / Copy url to clipboard'.
 
-            04. Ir a la siguiente carpeta (para el caso del ejemplo 'ej01_n_capas_php_sql_html'): C:\xampp\htdocs.
+            04. Ir a la siguiente carpeta (en el caso del ejemplo, 'ej01_n_capas_php_sql_html'): C:\xampp\htdocs.
 
             05. Click derecho sobre el área de trabajo y seleccionar la opción 'Open Git Bash here'; si no se encuentra la opción, hay que instalar 
                 'Git' (ver el apartado 04.04. Instalar Git).
@@ -135,7 +135,7 @@
 
                     $ git clone https://github.com/SenaProfeAlbeiro/prueba.git
 
-            NOTA:   ⦿   Si el proyecto ya se encuentra en el computador, puede utilizar el siguiente comando para actualizar la información:.
+            NOTA:   ⦿   Si el proyecto ya se encuentra en el computador, puede utilizar el siguiente comando para actualizar la información:
                     
                     $ git pull
             

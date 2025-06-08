@@ -109,12 +109,37 @@
                     branch 'main' set up to track 'origin/main'.
             
             06. Actualizar la ventana del navegador donde se encuentra abierta su cuenta de 'Github'
+            
+            07. Para actualizar la información del proyecto en 'Github', en el 'Git bash' escribir los siguientes comandos:
+
+                    $ git add .
+                    $ git commit -m "Comentario del cambio"
+                    $ git push
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |-- 01.03.  Clonar un proyecto 'Github': ----------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. .
+            01. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. 
+
+            02. Dar click al proyecto que desea clonar, en el caso del ejemplo es 'ej01_n_capas_php_sql_html'.
+
+            03. Dar click a la opción '<> Code / Copy url to clipboard'.
+
+            04. Ir a la siguiente carpeta (para el caso del ejemplo 'ej01_n_capas_php_sql_html'): C:\xampp\htdocs.
+
+            05. Click derecho sobre el área de trabajo y seleccionar la opción 'Open Git Bash here'; si no se encuentra la opción, hay que instalar 
+                'Git' (ver el apartado 04.04. Instalar Git).
+ 
+            06. En el 'Git Bash' pegar el repositorio clonado de 'Github' con 'CTRL + INSERT', quedando como sigue:
+
+                    $ git clone https://github.com/SenaProfeAlbeiro/prueba.git
+
+            NOTA:   ⦿   Si el proyecto ya se encuentra en el computador, puede utilizar el siguiente comando para actualizar la información:.
+                    
+                    $ git pull
+            
+            07. Abrir el proyecto en Visual Studio Code.
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|

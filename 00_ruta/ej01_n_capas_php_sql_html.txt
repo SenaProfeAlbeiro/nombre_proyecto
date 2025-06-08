@@ -5,15 +5,20 @@
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||                                                                                                                                                    |||
-||| --  01.  EJECUCIÓN                                                                                                                                 |||
-||| --  02.  ARQUITECTURA                                                                                                                              |||
-||| --  03.  STACK                                                                                                                                     |||
-||| --  04.  AMBIENTE                                                                                                                                  |||
-||| --  05.  BASE DE DATOS                                                                                                                             |||
-||| --  06.  BACKEND                                                                                                                                   |||
-||| --  07.  FRONTEND                                                                                                                                  |||
-||| --  08.  PRUEBAS                                                                                                                                   |||
-||| --  09.  DESPLIEGUE                                                                                                                                |||
+||| --  01. ARQUITECTURA                                                                                                                               |||
+||| --  02. STACK TECNOLÓGICO                                                                                                                          |||
+||| --  03. AMBIENTE                                                                                                                                   |||
+||| --  04. BASE DE DATOS                                                                                                                              |||
+||| --  05. BACKEND                                                                                                                                    |||
+||| --  06. FRONTEND                                                                                                                                   |||
+||| --  07. PRUEBAS                                                                                                                                    |||
+||| --  08. DESPLIEGUE                                                                                                                                 |||
+||| --  ANEXOS: TENER EN CUENTA                                                                                                                        |||
+||| --  --------- AX_01. Subir el proyecto a un repositorio 'Github'                                                                                   |||
+||| --  --------- AX_02. Clonar un proyecto 'Github'                                                                                                   |||
+||| --  --------- AX_03. Cambiar los puertos de 'Apache' en 'XAMPP'                                                                                    |||
+||| --  --------- AX_04. Cambiar los puertos de 'MySQL' en 'XAMPP'                                                                                     |||
+||| --  --------- AX_05. Poner en marcha el proyecto                                                                                                   |||
 |||                                                                                                                                                    |||
 ||| --  AUTOR:  ALBEIRO RAMOS. SENA, 2025.                                                                                                             |||
 |||                                                                                                                                                    |||
@@ -22,152 +27,52 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||----------------------------------------------------------------- 01.  EJECUCIÓN -------------------------------------------------------------------|||
+|||---------------------------------------------------------------- 01.  ARQUITECTURA -----------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 01.01.  Poner en marcha el proyecto: ----------------------------------------------------------------------------------------------------------------|
+|-- 01.01.  Diagrama de Casos de Uso: -------------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. Garantizar el ambiente de desarrollo (Ver apartado 04. AMBIENTE).
-            
-            02. Clonar el proyecto desde github en 'C:\xampp\htdocs' (Ver apartado 01.03. Clonar un proyecto 'Github').
-            
-            03. Abrir el proyecto en Visual Studio Code.
-            
-            04. Abrir 'XAMPP' y ejecutar los servicios de 'Apache' y 'MySQL'.
-
-            05. Abrir un navegador (preferiblemente Google Chrome) a través de los siguientes enlaces:
-            
-                    http://localhost/ej01_n_capas_php_sql_html/
-
-                    http://localhost/phpmyadmin/            
-            
-            NOTA:   ⦿   Si el puerto de 'Apache' en 'XAMPP' es diferente al '80' y si es posible, cambiar el puerto al '80' (Ver apartado 01.04. 
-                         Cambiar los puertos de 'Apache' en 'XAMPP'); si no es posible, agregar el puerto al 'localhost', por ejemplo, si el puerto 
-                         es '8080' entonces debería quedar así:
-
-                         http://localhost:8080/ej01_n_capas_php_sql_html/
-
-                         http://localhost:8080/phpmyadmin/            
-            
-                    ⦿   Si el puerto de 'MySQL' en 'XAMPP' es diferente al '3306' y si es posible, cambiar el puerto al '3306' (Ver apartado 01.04. 
-                         Cambiar los puertos de 'MySQL' en 'XAMPP'); si no es posible, cambiar el puerto en la cadena de conexión (Ver apartado 06.03. 
-                         Codificar el Modelo de Conexión a la Base de Datos) 
-                                    
-            06. Subir la base de datos (Ver el apartado 05. BASE DE DATOS).
-
-            07. Comprobar que se ejecute correctamente la aplicación.
-
-
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 01.02.  Subir el proyecto a un repositorio 'Github': ------------------------------------------------------------------------------------------------|
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-
-            Para evitar confusiones y seguir los pasos correctamente, la carpeta raíz del proyecto se llamará 'ej01_n_capas_php_sql_html'.
-            
-            01. Verificar que no haya una cuenta de 'Github' asociada al computador, para ello, debe abrir el 'Panel de Control', dar clic en 'Cuentas 
-                de usuario / Administrar credenciales de Windows'. Si hay una cuenta asociada 'git:https://github.com', dar clic sobre la cuenta y clic
-                sobre la opción 'Quitar'. 
-            
-            NOTA:   ⦿   De no funcionar este método porque no tiene acceso al Panel de control, pruebe abriendo el 'Windows PowerShell' y digite el 
-                         siguiente comando:
-
-                         PS C:\..\..> echo "protocol=https`nhost=github.com`n" | git credential-manager erase
-            
-            02. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. Dar clic a 'New'.
-                En el control de texto 'Repository name', escribir el nombre de la carpeta raíz de su proyecto (ejemplo, 'ej01_n_capas_php_sql_html'. 
-                La carpeta raíz no debe tener espacios, ni caracteres compuesto, ni caracteres especiales) y dar clic en 'Create Repository'.
-
-            NOTA:   ⦿   Si no tiene cuenta en 'GitHub', debe crear una (Ver el apartado 04.03. Crear cuenta en 'Github').
-            
-            03. Clic derecho sobre la carpeta raíz (ejemplo, 'ej01_n_capas_php_sql_html') y seleccionar la opción 'Open Git Bash here'; si no se 
-                encuentra la opción, hay que instalar 'Git' (ver el apartado 04.04. Instalar Git).
-            
-            04. En el 'Git Bash' escribir lo siguiente:
-
-                    $ git config --global user.name "nombre de su cuenta"
-                    $ git config --global user.email "correo de su cuenta"
-
-                    $ git init
-                    $ git branch -M main
-                    $ git remote add origin https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
-                    $ git add .
-                    $ git commit -m "Subiendo Proyecto"
-                    $ git push -u origin main
-
-            05. Va a aparecer una ventana denominada 'Connect to Github', dar clic en la opción 'Sign in with your browser', dar clic en 'Authentication 
-                Succeeded'. Verificar que se haya abierto en el navegador que tiene abierta la cuenta, de lo contrario hay que escribir nuevamente las
-                credenciales de 'Github'. En el 'Git Bash' debe aparecer texto similar al siguiente:
-
-                    Enumerating objects: 3, done.
-                    Counting objects: 100% (3/3), done.
-                    Writing objects: 100% (3/3), 226 bytes | 226.00 KiB/s, done.
-                    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-                    To https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
-                    * [new branch]      main -> main
-                    branch 'main' set up to track 'origin/main'.
-            
-            06. Actualizar la ventana del navegador donde se encuentra abierta su cuenta de 'Github'
-            
-            07. Para actualizar la información del proyecto en 'Github', en el 'Git bash' escribir los siguientes comandos:
-
-                    $ git add .
-                    $ git commit -m "Comentario del cambio"
-                    $ git push
-
-
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 01.03.  Clonar un proyecto 'Github': ----------------------------------------------------------------------------------------------------------------|
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-
-            01. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. 
-
-            02. Dar click al proyecto que desea clonar, en el caso del ejemplo es 'ej01_n_capas_php_sql_html'.
-
-            03. Dar click a la opción '<> Code / Copy url to clipboard'.
-
-            04. Ir a la siguiente carpeta (en el caso del ejemplo, 'ej01_n_capas_php_sql_html'): C:\xampp\htdocs.
-
-            05. Click derecho sobre el área de trabajo y seleccionar la opción 'Open Git Bash here'; si no se encuentra la opción, hay que instalar 
-                'Git' (ver el apartado 04.04. Instalar Git).
- 
-            06. En el 'Git Bash' pegar el repositorio clonado de 'Github' con 'CTRL + INSERT', quedando como sigue:
-
-                    $ git clone https://github.com/SenaProfeAlbeiro/prueba.git
-
-            NOTA:   ⦿   Si el proyecto ya se encuentra en el computador, puede utilizar el siguiente comando para actualizar la información:
+            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
                     
-                    $ git pull
-            
-            07. Abrir el proyecto en Visual Studio Code.
+                    01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 01.04.  Cambiar los puertos de 'Apache' en 'XAMPP': -------------------------------------------------------------------------------------------------|
+|-- 01.02.  Casos de Uso Extendido: ---------------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click a 'Config / Apache (httpd.conf)'.
-            
-            02. Se abrirá un 'Bloc de Notas'. Dar click a la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
-            
-            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '80' y dar click a 'Buscar siguiente'.
-            
-            03. Reemplazar donde se encuentra '80' con el puerto de trabajo, por ejemplo, '8080' .
+            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+                    
+                    01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 01.05.  Cambiar los puertos de 'MySQL' en 'XAMPP': -------------------------------------------------------------------------------------------------|
+|-- 01.03.  Modelo Relacional - MR (o Modelo Entidad Relación - MER): -----------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. .
+            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
 
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.04.  Diagrama de Clases: -------------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.05.  Diagrama de Distribución: -------------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:            
 
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||---------------------------------------------------------------- 02.  ARQUITECTURA -----------------------------------------------------------------|||
+|||-------------------------------------------------------------- 02.  STACK TECNOLÓGICO --------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -178,38 +83,17 @@
             01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
                     
                     01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
-                    
-            NOTA:   ⦿   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
-
-
-
-
-|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
-|||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||-------------------------------------------------------------------- 03.  STACK --------------------------------------------------------------------|||
-|||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 03.01.  XXXXXXXXXXXXXXXXXXXXXXXXXXX: ----------------------------------------------------------------------------------------------------------------|
+|-- 02.02.  Diagrama de Despliegue: ---------------------------------------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:
-                    
-                    01   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
-                    
-                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
-                |                                                                                                                                      |
-                  NOTAS:                       
-                    
-                    ⦿   Verificar que los puertos sean: En Apache (:80) y de MySQL (:3306).
-                |                                                                                                                                      |
-                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||------------------------------------------------------------------ 04.  AMBIENTE -------------------------------------------------------------------|||
+|||------------------------------------------------------------------ 03.  AMBIENTE -------------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -268,7 +152,7 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||---------------------------------------------------------------- 05.  BASE DE DATOS ----------------------------------------------------------------|||
+|||---------------------------------------------------------------- 04.  BASE DE DATOS ----------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -323,7 +207,7 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||------------------------------------------------------------------- 06.  BACKEND -------------------------------------------------------------------|||
+|||------------------------------------------------------------------- 05.  BACKEND -------------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -1032,7 +916,7 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||------------------------------------------------------------------ 07.  FRONTEND -------------------------------------------------------------------|||
+|||------------------------------------------------------------------ 06.  FRONTEND -------------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -1172,7 +1056,7 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||------------------------------------------------------------------- 08.  PRUEBAS -------------------------------------------------------------------|||
+|||------------------------------------------------------------------- 07.  PRUEBAS -------------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -1192,7 +1076,7 @@
 
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
-|||----------------------------------------------------------------- 09.  DESPLIEGUE ------------------------------------------------------------------|||
+|||----------------------------------------------------------------- 08.  DESPLIEGUE ------------------------------------------------------------------|||
 |||----------------------------------------------------------------------------------------------------------------------------------------------------|||
 |||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
 
@@ -1213,3 +1097,181 @@
 
 
 
+
+|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
+|||----------------------------------------------------------------------------------------------------------------------------------------------------|||
+|||------------------------------------------------------------- ANEXOS: TENER EN CUENTA --------------------------------------------------------------|||
+|||----------------------------------------------------------------------------------------------------------------------------------------------------|||
+|||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|||
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.02.  Subir el proyecto a un repositorio 'Github': ------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            Para evitar confusiones y seguir los pasos correctamente, la carpeta raíz del proyecto se llamará 'ej01_n_capas_php_sql_html'.
+            
+            01. Verificar que no haya una cuenta de 'Github' asociada al computador, para ello, debe abrir el 'Panel de Control', dar clic en 'Cuentas 
+                de usuario / Administrar credenciales de Windows'. Si hay una cuenta asociada 'git:https://github.com', dar clic sobre la cuenta y clic
+                sobre la opción 'Quitar'. 
+            
+            NOTA:   ⦿   De no funcionar este método porque no tiene acceso al Panel de control, pruebe abriendo el 'Windows PowerShell' y digite el 
+                         siguiente comando:
+
+                         PS C:\..\..> echo "protocol=https`nhost=github.com`n" | git credential-manager erase
+            
+            02. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. Dar clic a 'New'.
+                En el control de texto 'Repository name', escribir el nombre de la carpeta raíz de su proyecto (ejemplo, 'ej01_n_capas_php_sql_html'. 
+                La carpeta raíz no debe tener espacios, ni caracteres compuesto, ni caracteres especiales) y dar clic en 'Create Repository'.
+
+            NOTA:   ⦿   Si no tiene cuenta en 'GitHub', debe crear una (Ver el apartado 04.03. Crear cuenta en 'Github').
+            
+            03. Clic derecho sobre la carpeta raíz (ejemplo, 'ej01_n_capas_php_sql_html') y seleccionar la opción 'Open Git Bash here'; si no se 
+                encuentra la opción, hay que instalar 'Git' (ver el apartado 04.04. Instalar Git).
+            
+            04. En el 'Git Bash' escribir lo siguiente:
+
+                    $ git config --global user.name "nombre de su cuenta"
+                    $ git config --global user.email "correo de su cuenta"
+
+                    $ git init
+                    $ git branch -M main
+                    $ git remote add origin https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
+                    $ git add .
+                    $ git commit -m "Subiendo Proyecto"
+                    $ git push -u origin main
+
+            05. Va a aparecer una ventana denominada 'Connect to Github', dar clic en la opción 'Sign in with your browser', dar clic en 'Authentication 
+                Succeeded'. Verificar que se haya abierto en el navegador que tiene abierta la cuenta, de lo contrario hay que escribir nuevamente las
+                credenciales de 'Github'. En el 'Git Bash' debe aparecer texto similar al siguiente:
+
+                    Enumerating objects: 3, done.
+                    Counting objects: 100% (3/3), done.
+                    Writing objects: 100% (3/3), 226 bytes | 226.00 KiB/s, done.
+                    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+                    To https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
+                    * [new branch]      main -> main
+                    branch 'main' set up to track 'origin/main'.
+            
+            06. Actualizar la ventana del navegador donde se encuentra abierta su cuenta de 'Github'
+            
+            07. Para actualizar la información del proyecto en 'Github', en el 'Git bash' escribir los siguientes comandos:
+
+                    $ git add .
+                    $ git commit -m "Comentario del cambio"
+                    $ git push
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.03.  Clonar un proyecto 'Github': ----------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Abrir su cuenta de 'Github' y en la parte superior derecha, dar clic al 'Nombre de su cuenta / Your Repositories'. 
+
+            02. Dar click al proyecto que desea clonar, en el caso del ejemplo es 'ej01_n_capas_php_sql_html'.
+
+            03. Dar click a la opción '<> Code / Copy url to clipboard'.
+
+            04. Ir a la siguiente carpeta (en el caso del ejemplo, 'ej01_n_capas_php_sql_html'): C:\xampp\htdocs.
+
+            05. Click derecho sobre el área de trabajo y seleccionar la opción 'Open Git Bash here'; si no se encuentra la opción, hay que instalar 
+                'Git' (ver el apartado 04.04. Instalar Git).
+ 
+            06. En el 'Git Bash' pegar el repositorio clonado de 'Github' con 'CTRL + INSERT', quedando como sigue:
+
+                    $ git clone https://github.com/SenaProfeAlbeiro/ej01_n_capas_php_sql_html.git
+
+            NOTA:   ⦿   Si el proyecto ya se encuentra en el computador, puede utilizar el siguiente comando para actualizar la información:
+                    
+                    $ git pull
+            
+            07. Abrir el proyecto en Visual Studio Code.
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.04.  Cambiar los puertos de 'Apache' en 'XAMPP': -------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+                         
+            01. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click a 'Config / Apache (httpd.conf)'.
+            
+            02. Se abrirá un 'Bloc de Notas'. Dar click a la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
+            
+            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '80' y dar click a 'Buscar siguiente'.
+            
+            04. Reemplazar todos los valores donde se encentre el puerto '80' con el puerto nuevo de trabajo, por ejemplo, '8080'. Dar click en 
+                'cancelar' y guardar los cambios en el archivo.
+
+            05. En el Panel de control de XAMPP dar click en 'start' de 'Apache' para iniciar el servicio.
+            
+            06. Comprobar que quedó de la forma correcta a través del navegador, con el siguiente enlace:
+
+                         http://localhost:8080/ej01_n_capas_php_sql_html/
+            
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.05.  Cambiar los puertos de 'MySQL' en 'XAMPP': --------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. En el Panel de control de XAMPP y en la misma línea del servicio 'MySQL' dar click a 'Config / my.ini'.
+
+            02. Se abrirá un 'Bloc de Notas'. Dar click a la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
+            
+            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '3306' y dar click a 'Buscar siguiente'.
+
+            04. Reemplazar todos los valores donde se encentre el puerto '3306' con el puerto nuevo de trabajo, por ejemplo, '3308'. Dar click en 
+                'cancelar' y guardar los cambios en el archivo.
+
+            05. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click a 'Config / Apache (php.ini)'.
+
+            06. Se abrirá un 'Bloc de Notas'. Dar click a la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
+
+            07. En la ventana emergente y en el control de texto 'Buscar: ', escribir '3306' y dar click a 'Buscar siguiente'.
+
+            08. Reemplazar todos los valores donde se encentre el puerto '3306' con el puerto nuevo de trabajo, por ejemplo, '3308'. Dar click en 
+                'cancelar' y guardar los cambios en el archivo.
+        
+            09. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click a 'Config / phpMyAdmin (config.inc.php)'.
+
+            10. Buscar la línea '$cfg['Servers'][$i]['host'] = '127.0.0.1;' y agregar el puerto nuevo '3308' de la siguiente forma:
+                         
+                         $cfg['Servers'][$i]['host'] = '127.0.0.1:3308';
+
+            11. En el Panel de control de XAMPP dar click en 'start' de 'MySQL' para iniciar el servicio.
+
+            12. Comprobar que quedó de la forma correcta a través del navegador, con el siguiente enlace:
+
+                         http://localhost:8080/phpmyadmin/            
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 01.01.  Poner en marcha el proyecto: ----------------------------------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Garantizar el ambiente de desarrollo (Ver apartado 04. AMBIENTE).
+            
+            02. Clonar el proyecto desde github en 'C:\xampp\htdocs' (Ver apartado 01.03. Clonar un proyecto 'Github').
+            
+            03. Abrir el proyecto en Visual Studio Code.
+            
+            04. Abrir 'XAMPP' y ejecutar los servicios de 'Apache' y 'MySQL'.
+
+            05. Abrir un navegador (preferiblemente Google Chrome) a través de los siguientes enlaces:
+            
+                    http://localhost/ej01_n_capas_php_sql_html/
+
+                    http://localhost/phpmyadmin/            
+            
+            NOTA:   ⦿   Si el puerto de 'Apache' en 'XAMPP' es diferente al '80' y si es posible, cambiar el puerto al '80' (Ver apartado 01.04. 
+                         Cambiar los puertos de 'Apache' en 'XAMPP'); si no es posible, agregar el puerto al 'localhost', por ejemplo, si el puerto 
+                         es '8080' entonces debería quedar así:
+
+                         http://localhost:8080/ej01_n_capas_php_sql_html/
+
+                         http://localhost:8080/phpmyadmin/            
+            
+                    ⦿   Si el puerto de 'MySQL' en 'XAMPP' es diferente al '3306' y si es posible, cambiar el puerto al '3306' (Ver apartado 01.04. 
+                         Cambiar los puertos de 'MySQL' en 'XAMPP'); si no es posible, cambiar el puerto en la cadena de conexión (Ver apartado 06.03. 
+                         Codificar el Modelo de Conexión a la Base de Datos) 
+                                    
+            06. Subir la base de datos (Ver el apartado 05. BASE DE DATOS).
+
+            07. Comprobar que se ejecute correctamente la aplicación.

@@ -50,8 +50,7 @@
 
                          http://localhost:8080/ej01_n_capas_php_sql_html/
 
-                         http://localhost:8080/phpmyadmin/           
-            
+                         http://localhost:8080/phpmyadmin/            
             
                     ⦿   Si el puerto de 'MySQL' en 'XAMPP' es diferente al '3306' y si es posible, cambiar el puerto al '3306' (Ver apartado 01.04. 
                          Cambiar los puertos de 'MySQL' en 'XAMPP'); si no es posible, cambiar el puerto en la cadena de conexión (Ver apartado 06.03. 

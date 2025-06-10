@@ -3,9 +3,11 @@
     class IniciarSesion {
         public function main(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                if (empty($_SESSION['sesion'])) {                    
-                    require_once "vistas/empresa/iniciar_sesion.vista.php";
-                } else {
+                if (empty($_SESSION['sesion'])) {
+                require_once "vistas/empresa/header.vista.php";
+                require_once "vistas/empresa/iniciar_sesion.vista.php";
+                require_once "vistas/empresa/footer.vista.php";
+            } else {
                     header("Location: ?c=PanelControl");
                 }                
             }

@@ -616,8 +616,7 @@
                          formulario. Cuenta con la propiedad 'action', que sirve para indicarle dónde se procesaran los datos del formulario, en el
                          caso del ejemplo, no tiene valor, ya que los datos se procesarán en el controlador 'controllers/Login.php'. Por otro 
                          lado, la propiedad y valor 'method="POST"', le indican a la 'URL' que los datos serán procesados por el método 'POST', es
-                         decir, estarán ocultos en la 'URL' por seguridad.                    
-                    
+                         decir, estarán ocultos en la 'URL' por seguridad.
                     
                     J.   Las líneas 12 y 25, 16 y 19, 20 y 23; indican la apertura '<div>' y cierre '</div>' de la etiqueta 'div'. Sirve como 
                          contenedor de otras etiquetas 'html', en este caso, contendrá los controles del formulario.
@@ -823,10 +822,254 @@
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Escrbir en el archivo 'models/Rol.php' el siguiente código: 
-            
+                    
+                    01   <?php
+                    02     class Rol{
+                    03       private $rolCode;
+                    04       private $rolName;
+                    05       public function __construct(){
+                    06         try {        
+                    07           $a = func_get_args();
+                    08           $i = func_num_args();
+                    09           if (method_exists($this, $f = '__construct' . $i)) {
+                    10             call_user_func_array(array($this, $f), $a);
+                    11           }
+                    12         } catch (Exception $e) {
+                    13           die($e->getMessage());
+                    14         }
+                    15       }    
+                    16       public function __construct0(){}    
+                    17       public function __construct2($rolCode, $rolName){
+                    18         $this->rolCode = $rolCode;
+                    19         $this->rolName = $rolName;
+                    20       }
+                    21       public function setRolCode($rolCode){
+                    22         $this->rolCode = $rolCode;
+                    23       }
+                    24       public function getRolCode(){
+                    25         return $this->rolCode;
+                    26       }
+                    27       public function setRolName($rolName){
+                    28         $this->rolName = $rolName;
+                    29       }
+                    30       public function getRolName(){
+                    31         return $this->rolName;
+                    32       }
+                    33     }
+                    34   ?>
+                    
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que representa el modelo de datos de la tabla 'Roles'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            02. Escrbir en el archivo 'models/User.php' el siguiente código: 
+
                     01   <?php
 
                     
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que representa el modelo de datos de la tabla 'Roles'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 06.07.  Codificar las vistas de 'roles' y el controlador 'Users.php' --------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Escrbir en el archivo 'views/modules/roles/rol_create.view.php' el siguiente código:
+                    
+                    01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Dashboard">Inicio</a>
+                    11     <h3>Registrar Rol</h3>
+                    12     <form action="" method="POST">
+                    13       <div>
+                    14         <label for="">Nombre Rol</label>
+                    15         <input type="text" name="rol_name">
+                    16       </div>
+                    17       <div>
+                    18         <a href="?c=Dashboard">Cancelar</a>
+                    19         <input type="submit" value="Enviar">
+                    20       </div>
+                    21     </form>
+                    22   </body>
+                    23   </html>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, está escrito en 'html' y representa la vista para registrar un rol 'rol_create.view.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   En la línea 01, se indica que el lenguaje del archivo es de tipo '<html>'.
+
+                    B.   Las líneas 02 y 23, indican la apertura '<html>' y cierre '</html>' de la etiqueta 'html'. Cubre todo el navegador. También,
+                         indica el lenguaje por defecto del navegador.                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            02. Escrbir en el archivo 'views/modules/roles/rol_read.view.php' el siguiente código:
+                    
+                    01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Dashboard">Inicio</a>
+                    11     <h3>Consultar Roles</h3>  
+                    12     <a href="?c=Users&a=createRol">Registrar Rol</a>
+                    13     <br><br>
+                    14     <table border="1">    
+                    15       <thead>
+                    16         <th>CÓDIGO</th>
+                    17         <th>NOMBRE</th>
+                    18         <th>ACCIONES</th>
+                    19       </thead>
+                    20       <tbody>
+                    21         <tr>
+                    22           <td>1</td>
+                    23           <td>admin</td>
+                    24           <td>
+                    25             <a href="">Actualizar</a>
+                    26             <a href="">Eliminar</a>
+                    27           </td>
+                    28         </tr>
+                    29       </tbody>
+                    30     </table>
+                    31   </body>
+                    32   </html>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, está escrito en 'html' y representa la vista para registrar un rol 'rol_create.view.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   En la línea 01, se indica que el lenguaje del archivo es de tipo '<html>'.
+
+                    B.   Las líneas 02 y 23, indican la apertura '<html>' y cierre '</html>' de la etiqueta 'html'. Cubre todo el navegador. También,
+                         indica el lenguaje por defecto del navegador.                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            03. Escrbir en el archivo 'views/modules/roles/rol_update.view.php' el siguiente código:
+
+                    01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Dashboard">Inicio</a>
+                    11     <h3>Actualizar Rol</h3>
+                    12     <form action="" method="POST">
+                    13       <div>    
+                    14         <input type="hidden" name="rol_code" value="1">
+                    15       </div>
+                    16       <div>
+                    17         <label for="">Nombre Rol</label>
+                    18         <input type="text" name="rol_name">
+                    19       </div>
+                    20       <div>
+                    21         <a href="?c=Dashboard">Cancelar</a>
+                    22         <input type="submit" value="Actualizar">
+                    23       </div>
+                    24     </form>
+                    25   </body>
+                    26   </html>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, está escrito en 'html' y representa la vista para registrar un rol 'rol_create.view.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   En la línea 01, se indica que el lenguaje del archivo es de tipo '<html>'.
+
+                    B.   Las líneas 02 y 23, indican la apertura '<html>' y cierre '</html>' de la etiqueta 'html'. Cubre todo el navegador. También,
+                         indica el lenguaje por defecto del navegador.                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            04. Escrbir en el archivo 'controllers/Users.php' el siguiente código:
+
+                    01   <?php
+                    02     require_once "models/Rol.php";
+                    03     class Users {
+                    04       public function main(){}
+                    05       public function createRol(){
+                    06         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    07           require_once "views/modules/roles/rol_create.view.php";
+                    08         }
+                    09         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    10           $rol = new Rol(
+                    11             null,
+                    12             $_POST['rol_name']
+                    13           );
+                    14           print_r($rol);
+                    15         }
+                    16       }    
+                    17       public function readRoles(){
+                    18         require_once "views/modules/roles/rol_read.view.php";
+                    19       }    
+                    20       public function updateRol(){
+                    21         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    22           require_once "views/modules/roles/rol_update.view.php";
+                    23         }
+                    24         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    25           $rol = new Rol(
+                    26             null,
+                    27             $_POST['rol_name']
+                    28           );
+                    29           print_r($rol);
+                    30         }      
+                    31       }
+                    32       public function deleteRol(){
+                    33         header("Location: ?c=Users&a=readRoles");
+                    34       }
+                    35     }
+                    36   ?>
+
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
                   EXPLICACIÓN:   
@@ -837,35 +1080,92 @@
 
                 |--------------------------------------------------------------------------------------------------------------------------------------|
 
-                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                    A.   Las líneas 01 y 36, son para crear un bloque de código 'php'.
                 |                                                                                                                                      |
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
-
-
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.07.  Codificar las vistas de 'roles' y el controlador 'Users.php' ---------------------------------------------------------------------------------|
-|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-
-            01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
-                    
-                    01   <!DOCTYPE html>
-
-            02. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
-                    
-                    01   <!DOCTYPE html>
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |-- 06.08.  Codificar las vistas de 'users' y el controlador 'Users.php' --------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+            01. Escrbir en el archivo 'views/modules/users/user_create.view.php' el siguiente código:
+                    
+                    01   <!DOCTYPE html>
+           
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, está escrito en 'html' y representa la vista para registrar un rol 'rol_create.view.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   En la línea 01, se indica que el lenguaje del archivo es de tipo '<html>'.
+
+                    B.   Las líneas 02 y 23, indican la apertura '<html>' y cierre '</html>' de la etiqueta 'html'. Cubre todo el navegador. También,
+                         indica el lenguaje por defecto del navegador.                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            02. Escrbir en el archivo 'views/modules/users/user_read.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
 
-            02. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, está escrito en 'html' y representa la vista para registrar un rol 'rol_create.view.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   En la línea 01, se indica que el lenguaje del archivo es de tipo '<html>'.
+
+                    B.   Las líneas 02 y 23, indican la apertura '<html>' y cierre '</html>' de la etiqueta 'html'. Cubre todo el navegador. También,
+                         indica el lenguaje por defecto del navegador.                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            03. Escrbir en el archivo 'views/modules/users/user_update.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, está escrito en 'html' y representa la vista para registrar un rol 'rol_create.view.php'.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   En la línea 01, se indica que el lenguaje del archivo es de tipo '<html>'.
+
+                    B.   Las líneas 02 y 23, indican la apertura '<html>' y cierre '</html>' de la etiqueta 'html'. Cubre todo el navegador. También,
+                         indica el lenguaje por defecto del navegador.                    
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+            04. Modificar en el archivo 'controllers/Users.php' el siguiente código:
+
+                    01   <?php
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus funciones (o métodos), permite llamar modelos, dependiendo de 
+                         la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener información de la 
+                         Base de Datos.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 36, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|

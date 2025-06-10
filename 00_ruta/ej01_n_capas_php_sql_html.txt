@@ -263,6 +263,7 @@
                 │   ├── Landing.php                             # A. Controlador del 'Landing' (Página principal de la Empresa).
                 │   ├── Login.php                               # A. Controlador del 'Login' (Inicio de Sesión).
                 │   ├── Logout.php                              # A. Controlador del 'Logout' (Cierre de Sesión).
+                │   └── Roles.php                               # A. Controlador de 'Roles' (Roles).
                 │   └── Users.php                               # A. Controlador de 'Users' (Usuarios).
                 ├── models/                                     # C. Modelos del proyecto (Diagrama de Clases).
                 │   ├── DataBase.php                            # A. Modelo - o Cadena - de conexión a la Base de Datos.
@@ -708,10 +709,10 @@
                     12       <div>
                     13         <h3>Roles</h3>
                     14         <div>
-                    15           <a href="?c=Users&a=createRol">Registrar Rol</a>
+                    15           <a href="?c=Roles&a=createRol">Registrar Rol</a>
                     16         </div>
                     17         <div>
-                    18           <a href="?c=Users&a=readRoles">Consultar Roles</a>
+                    18           <a href="?c=Roles&a=readRoles">Consultar Roles</a>
                     19         </div>
                     20       </div>
                     21       <div>    
@@ -874,7 +875,91 @@
             02. Escrbir en el archivo 'models/User.php' el siguiente código: 
 
                     01   <?php
-
+                    02     class User{
+                    03       private $rolCode;
+                    04       private $userCode;
+                    05       private $userName;
+                    06       private $userLastname;
+                    07       private $userId;
+                    08       private $userEmail;
+                    09       private $userPass;
+                    10       private $userState;
+                    11       public function __construct(){
+                    12         try {
+                    13           $a = func_get_args();
+                    14           $i = func_num_args();
+                    15           if (method_exists($this, $f = '__construct' . $i)) {
+                    16             call_user_func_array(array($this, $f), $a);
+                    17           }
+                    18         } catch (Exception $e) {
+                    19           die($e->getMessage());
+                    20         }
+                    21       }
+                    22       public function __construct0(){}    
+                    23       public function __construct2($userEmail, $userPass){
+                    24         $this->userEmail = $userEmail;
+                    25         $this->userPass = $userPass;
+                    26       }
+                    27       public function __construct8($rolCode, $userCode, $userName, $userLastname, $userId, $userEmail, $userPass, $userState){
+                    28         $this->rolCode = $rolCode;
+                    29         $this->userCode = $userCode;
+                    30         $this->userName = $userName;
+                    31         $this->userLastname = $userLastname;
+                    32         $this->userId = $userId;
+                    33         $this->userEmail = $userEmail;
+                    34         $this->userPass = $userPass;
+                    35         $this->userState = $userState;
+                    36       }    
+                    37       public function setRolCode($rolCode){
+                    38         $this->rolCode = $rolCode;
+                    39       }
+                    40       public function getRolCode(){
+                    41         return $this->rolCode;
+                    42       }    
+                    43       public function setUserCode($userCode){
+                    44         $this->userCode = $userCode;
+                    45       }
+                    46       public function getUserCode(){
+                    47         return $this->userCode;
+                    48       }
+                    49       public function setUserName($userName){
+                    50         $this->userName = $userName;
+                    51       }
+                    52       public function getUserName(){
+                    53         return $this->userName;
+                    54       }
+                    55       public function setUserLastname($userLastname){
+                    56         $this->userLastname = $userLastname;
+                    57       }
+                    58       public function getUserLastname(){
+                    59         return $this->userLastname;
+                    60       }
+                    61       public function setUserId($userId){
+                    62         $this->userId = $userId;
+                    63       }
+                    64       public function getUserId(){
+                    65         return $this->userId;
+                    66       }
+                    67       public function setUserEmail($userEmail){
+                    68         $this->userEmail = $userEmail;
+                    69       }
+                    70       public function getUserEmail(){
+                    71         return $this->userEmail;
+                    72       }
+                    73       public function setUserPass($userPass){
+                    74         $this->userPass = $userPass;
+                    75       }
+                    76       public function getUserPass(){
+                    77         return $this->userPass;
+                    78       }
+                    79       public function setUserState($userState){
+                    80         $this->userState = $userState;
+                    81       }
+                    82       public function getUserState(){
+                    83         return $this->userState;
+                    84       }
+                    85     }
+                    86   ?>
                     
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -890,7 +975,7 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.07.  Codificar las vistas de 'roles' y el controlador 'Users.php' --------------------------------------------------------------------------------|
+|-- 06.07.  Codificar las vistas de 'roles' y el controlador 'Roles.php' --------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Escrbir en el archivo 'views/modules/roles/rol_create.view.php' el siguiente código:
@@ -908,7 +993,7 @@
                     11     <h3>Registrar Rol</h3>
                     12     <form action="" method="POST">
                     13       <div>
-                    14         <label for="">Nombre Rol</label>
+                    14         <label for="">Nombre</label>
                     15         <input type="text" name="rol_name">
                     16       </div>
                     17       <div>
@@ -948,7 +1033,7 @@
                     09     <h1>Panel de Control</h1>
                     10     <a href="?c=Dashboard">Inicio</a>
                     11     <h3>Consultar Roles</h3>  
-                    12     <a href="?c=Users&a=createRol">Registrar Rol</a>
+                    12     <a href="?c=Roles&a=createRol">Registrar Rol</a>
                     13     <br><br>
                     14     <table border="1">    
                     15       <thead>
@@ -961,14 +1046,14 @@
                     22           <td>1</td>
                     23           <td>admin</td>
                     24           <td>
-                    25             <a href="">Actualizar</a>
-                    26             <a href="">Eliminar</a>
+                    25             <a href="?c=Roles&a=updateRol&idRol=1">Actualizar</a>
+                    26             <a href="?c=Roles&a=deleteRol&idRol=1">Eliminar</a>
                     27           </td>
                     28         </tr>
                     29       </tbody>
                     30     </table>
                     31   </body>
-                    32   </html>
+                    32   </html>                    
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -1004,7 +1089,7 @@
                     14         <input type="hidden" name="rol_code" value="1">
                     15       </div>
                     16       <div>
-                    17         <label for="">Nombre Rol</label>
+                    17         <label for="">Nombre</label>
                     18         <input type="text" name="rol_name">
                     19       </div>
                     20       <div>
@@ -1031,11 +1116,11 @@
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
-            04. Escrbir en el archivo 'controllers/Users.php' el siguiente código:
+            04. Escrbir en el archivo 'controllers/Roles.php' el siguiente código:
 
                     01   <?php
                     02     require_once "models/Rol.php";
-                    03     class Users {
+                    03     class Roles {
                     04       public function main(){}
                     05       public function createRol(){
                     06         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -1065,7 +1150,7 @@
                     30         }      
                     31       }
                     32       public function deleteRol(){
-                    33         header("Location: ?c=Users&a=readRoles");
+                    33         header("Location: ?c=Roles&a=readRoles");
                     34       }
                     35     }
                     36   ?>
@@ -1092,7 +1177,64 @@
             01. Escrbir en el archivo 'views/modules/users/user_create.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
-           
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Dashboard">Inicio</a>
+                    11     <h3>Registrar Usuario</h3>
+                    12     <form action="" method="POST">
+                    13       <div>
+                    14         <label for="">Rol</label>
+                    15         <select name="rol_code" id="">
+                    16           <option value="1">admin</option>
+                    17           <option value="2" selected>customer</option>
+                    18           <option value="3">seller</option>
+                    19         </select>
+                    20       </div>
+                    21       <div>
+                    22         <label for="">Nombres</label>
+                    23         <input type="text" name="user_name">
+                    24       </div>
+                    25       <div>
+                    26         <label for="">Apellidos</label>
+                    27         <input type="text" name="user_lastname">
+                    28       </div>
+                    29       <div>
+                    30         <label for="">Identificación</label>
+                    31         <input type="text" name="user_id">
+                    32       </div>
+                    33       <div>
+                    34         <label for="">Email</label>
+                    35         <input type="email" name="user_email">
+                    36       </div>
+                    37       <div>
+                    38         <label for="">Contraseña</label>
+                    39         <input type="password" name="user_pass">
+                    40       </div>
+                    41       <div>
+                    42         <label for="">Confirmación</label>
+                    43         <input type="password" name="user_pass_conf">
+                    44       </div>
+                    45       <div>
+                    46         <label for="">Estado</label>
+                    47         <select name="user_state" id="">
+                    48           <option value="1">Activo</option>
+                    49           <option value="0">Inactivo</option>
+                    50         </select>
+                    51       </div>
+                    52       <div>
+                    53         <a href="?c=Dashboard">Cancelar</a>
+                    54         <input type="submit" value="Enviar">
+                    55       </div>
+                    56     </form>
+                    57   </body>
+                    58   </html>
+
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
                   EXPLICACIÓN:   
@@ -1112,6 +1254,47 @@
             02. Escrbir en el archivo 'views/modules/users/user_read.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Dashboard">Inicio</a>
+                    11     <h3>Consultar Roles</h3>  
+                    12     <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    13     <br><br>
+                    14     <table border="1">    
+                    15       <thead>
+                    16         <th>ROL</th>
+                    17         <th>CÓDIGO</th>
+                    18         <th>NOMBRES</th>
+                    19         <th>APELLIDOS</th>
+                    20         <th>IDENTIFICACIÓN</th>
+                    21         <th>EMAIL</th>
+                    22         <th>ESTADO</th>
+                    23         <th>ACCIONES</th>
+                    24       </thead>
+                    25       <tbody>
+                    26         <tr>
+                    27             <td>admin</td>
+                    28             <td>123</td>
+                    29             <td>Albeiro</td>
+                    30             <td>Ramos</td>
+                    31             <td>1234567890</td>
+                    32             <td>profealbeiro2020@gmail.com</td>
+                    33             <td>Activo</td>
+                    34           <td>
+                    35             <a href="?c=Users&a=updateUser&idUser=1">Actualizar</a>
+                    36             <a href="?c=Users&a=deleteUser&idUser=1">Eliminar</a>
+                    37           </td>
+                    38         </tr>
+                    39       </tbody>
+                    40     </table>
+                    41   </body>
+                    42   </html>
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -1132,6 +1315,66 @@
             03. Escrbir en el archivo 'views/modules/users/user_update.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <h1>Panel de Control</h1>
+                    10     <a href="?c=Dashboard">Inicio</a>
+                    11     <h3>Actualizar Usuario</h3>
+                    12     <form action="" method="POST">
+                    13       <div>
+                    14         <label for="">Rol</label>
+                    15         <select name="rol_code" id="">
+                    16           <option value="1">admin</option>
+                    17           <option value="2" selected>customer</option>
+                    18           <option value="3">seller</option>
+                    19         </select>
+                    20       </div>
+                    21       <div>    
+                    22         <input type="hidden" name="user_code" value="1">
+                    23       </div>
+                    24       <div>
+                    25         <label for="">Nombres</label>
+                    26         <input type="text" name="user_name">
+                    27       </div>
+                    28       <div>
+                    29         <label for="">Apellidos</label>
+                    30         <input type="text" name="user_lastname">
+                    31       </div>
+                    32       <div>
+                    33         <label for="">Identificación</label>
+                    34         <input type="text" name="user_id">
+                    35       </div>
+                    36       <div>
+                    37         <label for="">Email</label>
+                    38         <input type="email" name="user_email">
+                    39       </div>
+                    40       <div>
+                    41         <label for="">Contraseña</label>
+                    42         <input type="password" name="user_pass">
+                    43       </div>
+                    44       <div>
+                    45         <label for="">Confirmación</label>
+                    46         <input type="password" name="user_pass_conf">
+                    47       </div>
+                    48       <div>
+                    49         <label for="">Estado</label>
+                    50         <select name="user_state" id="">
+                    51           <option value="1">Activo</option>
+                    52           <option value="0">Inactivo</option>
+                    53         </select>
+                    54       </div>
+                    55       <div>
+                    56         <a href="?c=Dashboard">Cancelar</a>
+                    57         <input type="submit" value="Actualizar">
+                    58       </div>
+                    59     </form>
+                    60   </body>
+                    61   </html>
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -1149,9 +1392,56 @@
                 └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
 
 
-            04. Modificar en el archivo 'controllers/Users.php' el siguiente código:
+            04. Escribir en el archivo 'controllers/Users.php' el siguiente código:
 
                     01   <?php
+                    02     require_once "models/User.php";
+                    03     class Users {
+                    04       public function main(){}
+                    05       public function createUser(){
+                    06         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    07           require_once "views/modules/users/user_create.view.php";
+                    08         }
+                    09         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    10           $user = new User(
+                    11             $_POST['rol_code'],
+                    12             null,
+                    13             $_POST['user_name'],
+                    14             $_POST['user_lastname'],
+                    15             $_POST['user_id'],
+                    16             $_POST['user_email'],
+                    17             $_POST['user_pass'],
+                    18             $_POST['user_state']
+                    19           );
+                    20           print_r($user);
+                    21         }
+                    22       }    
+                    23       public function readUsers(){
+                    24         require_once "views/modules/users/user_read.view.php";
+                    25       }    
+                    26       public function updateUser(){
+                    27         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    28           require_once "views/modules/users/user_update.view.php";
+                    29         }
+                    30         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    31           $user = new User(
+                    32             $_POST['rol_code'],
+                    33             null,
+                    34             $_POST['user_name'],
+                    35             $_POST['user_lastname'],
+                    36             $_POST['user_id'],
+                    37             $_POST['user_email'],
+                    38             $_POST['user_pass'],
+                    39             $_POST['user_state']
+                    40           );
+                    41           print_r($user);
+                    42         }      
+                    43       }
+                    44       public function deleteUser(){
+                    45         header("Location: ?c=Users&a=readUsers");
+                    46       }
+                    47     }
+                    48   ?>
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -1169,11 +1459,11 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.09.  Codificar el Diagrama de Clases II. Métodos CRUD de persistencia a la Base de Datos (Funcionalidades - Diagrama de Casos de Uso): -----------|
+|-- 06.09.  Codificar el Diagrama de Clases II. Métodos de persistencia a la Base de Datos (CRUD - Funcionalidades - Diagrama de Casos de Uso): ---------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 
-            01. Escrbir en el archivo 'models/Rol.php' el siguiente código: 
+            01. Ajustar el archivo 'models/Rol.php' con el siguiente código: 
             
                     01   <?php
 
@@ -1182,9 +1472,9 @@
                 |                                                                                                                                      |
                   EXPLICACIÓN:   
                     
-                    ⦿   El código de este archivo, es una Clase que a través de sus funciones (o métodos), permite llamar modelos, dependiendo de 
-                         la petición (request) del 'index.php' y entregar como respuesta (response), una vista que puede contener información de la 
-                         Base de Datos.
+                    ⦿   El código de este archivo, es una Clase que a través de sus atributos y funciones (o métodos), permite llamar realizar una 
+                         persistencia a la base de datos, es decir, realiza consultas CRUD (Create, Read, Update, Delete), como son: Registrar Rol,
+                         Consultar Roles, Obtener Rol por Identificador, Actualizar Rol y Eliminar Rol.
 
                 |--------------------------------------------------------------------------------------------------------------------------------------|
 
@@ -1194,7 +1484,7 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.10.  Agregar código al controlador 'Users.php' ---------------------------------------------------------------------------------------------------|
+|-- 06.10.  Ajustar controlador 'Roles' y las vistas de 'roles' -----------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
             01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:

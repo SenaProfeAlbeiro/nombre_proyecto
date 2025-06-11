@@ -1292,56 +1292,88 @@
                     06     <title>Panel de Control</title>
                     07   </head>
                     08   <body>
-                    09     <h1>Panel de Control</h1>
-                    10     <a href="?c=Dashboard">Inicio</a>
-                    11     <h3>Registrar Usuario</h3>
-                    12     <form action="" method="POST">
-                    13       <div>
-                    14         <label for="">Rol</label>
-                    15         <select name="rol_code" id="">
-                    16           <option value="1">admin</option>
-                    17           <option value="2" selected>customer</option>
-                    18           <option value="3">seller</option>
-                    19         </select>
-                    20       </div>
-                    21       <div>
-                    22         <label for="">Nombres</label>
-                    23         <input type="text" name="user_name">
-                    24       </div>
-                    25       <div>
-                    26         <label for="">Apellidos</label>
-                    27         <input type="text" name="user_lastname">
-                    28       </div>
-                    29       <div>
-                    30         <label for="">Identificación</label>
-                    31         <input type="text" name="user_id">
-                    32       </div>
-                    33       <div>
-                    34         <label for="">Email</label>
-                    35         <input type="email" name="user_email">
-                    36       </div>
-                    37       <div>
-                    38         <label for="">Contraseña</label>
-                    39         <input type="password" name="user_pass">
-                    40       </div>
-                    41       <div>
-                    42         <label for="">Confirmación</label>
-                    43         <input type="password" name="user_pass_conf">
-                    44       </div>
-                    45       <div>
-                    46         <label for="">Estado</label>
-                    47         <select name="user_state" id="">
-                    48           <option value="1">Activo</option>
-                    49           <option value="0">Inactivo</option>
-                    50         </select>
-                    51       </div>
-                    52       <div>
-                    53         <a href="?c=Dashboard">Cancelar</a>
-                    54         <input type="submit" value="Enviar">
-                    55       </div>
-                    56     </form>
-                    57   </body>
-                    58   </html>
+                    09     <div>
+                    10       <h1>Panel de Control</h1>
+                    11       <a href="?c=Logout">Cerrar Sesión</a>
+                    12     </div>
+                    13     <hr>
+                    14     <div>    
+                    15       <div>
+                    16         <h3>Roles</h3>
+                    17         <div>
+                    18           <a href="?c=Roles&a=createRol">Registrar Rol</a>
+                    19         </div>
+                    20         <div>
+                    21           <a href="?c=Roles&a=readRoles">Consultar Roles</a>
+                    22         </div>
+                    23       </div>
+                    24       <div>    
+                    25         <h3>Usuarios</h3>
+                    26         <div>
+                    27           <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    28         </div>
+                    29         <div>
+                    30           <a href="?c=Users&a=readUsers">Consultar Usuarios</a>
+                    31         </div>
+                    32       </div>    
+                    33     </div>
+                    34     <hr>
+                    35     <div>
+                    36       <a href="?c=Dashboard">Inicio</a>
+                    37       <h2>Registrar Usuario</h2>
+                    38       <form action="" method="POST">
+                    39         <div>
+                    40           <label for="">Rol</label>
+                    41           <select name="rol_code" id="">
+                    42             <option value="1">admin</option>
+                    43             <option value="2" selected>customer</option>
+                    44             <option value="3">seller</option>
+                    45           </select>
+                    46         </div>
+                    47         <div>
+                    48           <label for="">Nombres</label>
+                    49           <input type="text" name="user_name">
+                    50         </div>
+                    51         <div>
+                    52           <label for="">Apellidos</label>
+                    53           <input type="text" name="user_lastname">
+                    54         </div>
+                    55         <div>
+                    56           <label for="">Identificación</label>
+                    57           <input type="text" name="user_id">
+                    58         </div>
+                    59         <div>
+                    60           <label for="">Email</label>
+                    61           <input type="email" name="user_email">
+                    62         </div>
+                    63         <div>
+                    64           <label for="">Contraseña</label>
+                    65           <input type="password" name="user_pass">
+                    66         </div>
+                    67         <div>
+                    68           <label for="">Confirmación</label>
+                    69           <input type="password" name="user_pass_conf">
+                    70         </div>
+                    71         <div>
+                    72           <label for="">Estado</label>
+                    73           <select name="user_state" id="">
+                    74             <option value="1">Activo</option>
+                    75             <option value="0">Inactivo</option>
+                    76           </select>
+                    77         </div>
+                    78         <div>
+                    79           <a href="?c=Dashboard">Cancelar</a>
+                    80           <input type="submit" value="Enviar">
+                    81         </div>
+                    82       </form>
+                    83     </div>
+                    84     <hr>
+                    85     <div>
+                    86       <h5>Realizado por: Albeiro Ramos, 2025.</h5>
+                    87     </div>
+                    88     <hr>
+                    89   </body>
+                    90   </html>
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -1369,40 +1401,72 @@
                     06     <title>Panel de Control</title>
                     07   </head>
                     08   <body>
-                    09     <h1>Panel de Control</h1>
-                    10     <a href="?c=Dashboard">Inicio</a>
-                    11     <h3>Consultar Roles</h3>  
-                    12     <a href="?c=Users&a=createUser">Registrar Usuario</a>
-                    13     <br><br>
-                    14     <table border="1">    
-                    15       <thead>
-                    16         <th>ROL</th>
-                    17         <th>CÓDIGO</th>
-                    18         <th>NOMBRES</th>
-                    19         <th>APELLIDOS</th>
-                    20         <th>IDENTIFICACIÓN</th>
-                    21         <th>EMAIL</th>
-                    22         <th>ESTADO</th>
-                    23         <th>ACCIONES</th>
-                    24       </thead>
-                    25       <tbody>
-                    26         <tr>
-                    27             <td>admin</td>
-                    28             <td>123</td>
-                    29             <td>Albeiro</td>
-                    30             <td>Ramos</td>
-                    31             <td>1234567890</td>
-                    32             <td>profealbeiro2020@gmail.com</td>
-                    33             <td>Activo</td>
-                    34           <td>
-                    35             <a href="?c=Users&a=updateUser&idUser=1">Actualizar</a>
-                    36             <a href="?c=Users&a=deleteUser&idUser=1">Eliminar</a>
-                    37           </td>
-                    38         </tr>
-                    39       </tbody>
-                    40     </table>
-                    41   </body>
-                    42   </html>
+                    09     <div>
+                    10       <h1>Panel de Control</h1>
+                    11       <a href="?c=Logout">Cerrar Sesión</a>
+                    12     </div>
+                    13     <hr>
+                    14     <div>    
+                    15       <div>
+                    16         <h3>Roles</h3>
+                    17         <div>
+                    18           <a href="?c=Roles&a=createRol">Registrar Rol</a>
+                    19         </div>
+                    20         <div>
+                    21           <a href="?c=Roles&a=readRoles">Consultar Roles</a>
+                    22         </div>
+                    23       </div>
+                    24       <div>    
+                    25         <h3>Usuarios</h3>
+                    26         <div>
+                    27           <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    28         </div>
+                    29         <div>
+                    30           <a href="?c=Users&a=readUsers">Consultar Usuarios</a>
+                    31         </div>
+                    32       </div>    
+                    33     </div>
+                    34     <hr>
+                    35     <div>    
+                    36       <a href="?c=Dashboard">Inicio</a>
+                    37       <h2>Consultar Roles</h2>  
+                    38       <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    39       <br><br>
+                    40       <table border="1">    
+                    41         <thead>
+                    42           <th>ROL</th>
+                    43           <th>CÓDIGO</th>
+                    44           <th>NOMBRES</th>
+                    45           <th>APELLIDOS</th>
+                    46           <th>IDENTIFICACIÓN</th>
+                    47           <th>EMAIL</th>
+                    48           <th>ESTADO</th>
+                    49           <th>ACCIONES</th>
+                    50         </thead>
+                    51         <tbody>
+                    52           <tr>
+                    53               <td>admin</td>
+                    54               <td>123</td>
+                    55               <td>Albeiro</td>
+                    56               <td>Ramos</td>
+                    57               <td>1234567890</td>
+                    58               <td>profealbeiro2020@gmail.com</td>
+                    59               <td>Activo</td>
+                    60             <td>
+                    61               <a href="?c=Users&a=updateUser&idUser=1">Actualizar</a>
+                    62               <a href="?c=Users&a=deleteUser&idUser=1">Eliminar</a>
+                    63             </td>
+                    64           </tr>
+                    65         </tbody>
+                    66       </table>
+                    67     </div>
+                    68     <hr>
+                    69     <div>
+                    70       <h5>Realizado por: Albeiro Ramos, 2025.</h5>
+                    71     </div>
+                    72     <hr>
+                    73   </body>
+                    74   </html>
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
@@ -1430,59 +1494,91 @@
                     06     <title>Panel de Control</title>
                     07   </head>
                     08   <body>
-                    09     <h1>Panel de Control</h1>
-                    10     <a href="?c=Dashboard">Inicio</a>
-                    11     <h3>Actualizar Usuario</h3>
-                    12     <form action="" method="POST">
-                    13       <div>
-                    14         <label for="">Rol</label>
-                    15         <select name="rol_code" id="">
-                    16           <option value="1">admin</option>
-                    17           <option value="2" selected>customer</option>
-                    18           <option value="3">seller</option>
-                    19         </select>
-                    20       </div>
-                    21       <div>    
-                    22         <input type="hidden" name="user_code" value="1">
+                    09     <div>
+                    10       <h1>Panel de Control</h1>
+                    11       <a href="?c=Logout">Cerrar Sesión</a>
+                    12     </div>
+                    13     <hr>
+                    14     <div>    
+                    15       <div>
+                    16         <h3>Roles</h3>
+                    17         <div>
+                    18           <a href="?c=Roles&a=createRol">Registrar Rol</a>
+                    19         </div>
+                    20         <div>
+                    21           <a href="?c=Roles&a=readRoles">Consultar Roles</a>
+                    22         </div>
                     23       </div>
-                    24       <div>
-                    25         <label for="">Nombres</label>
-                    26         <input type="text" name="user_name">
-                    27       </div>
-                    28       <div>
-                    29         <label for="">Apellidos</label>
-                    30         <input type="text" name="user_lastname">
-                    31       </div>
-                    32       <div>
-                    33         <label for="">Identificación</label>
-                    34         <input type="text" name="user_id">
-                    35       </div>
-                    36       <div>
-                    37         <label for="">Email</label>
-                    38         <input type="email" name="user_email">
-                    39       </div>
-                    40       <div>
-                    41         <label for="">Contraseña</label>
-                    42         <input type="password" name="user_pass">
-                    43       </div>
-                    44       <div>
-                    45         <label for="">Confirmación</label>
-                    46         <input type="password" name="user_pass_conf">
-                    47       </div>
-                    48       <div>
-                    49         <label for="">Estado</label>
-                    50         <select name="user_state" id="">
-                    51           <option value="1">Activo</option>
-                    52           <option value="0">Inactivo</option>
-                    53         </select>
-                    54       </div>
-                    55       <div>
-                    56         <a href="?c=Dashboard">Cancelar</a>
-                    57         <input type="submit" value="Actualizar">
-                    58       </div>
-                    59     </form>
-                    60   </body>
-                    61   </html>
+                    24       <div>    
+                    25         <h3>Usuarios</h3>
+                    26         <div>
+                    27           <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    28         </div>
+                    29         <div>
+                    30           <a href="?c=Users&a=readUsers">Consultar Usuarios</a>
+                    31         </div>
+                    32       </div>    
+                    33     </div>
+                    34     <hr>
+                    35     <div>    
+                    36       <a href="?c=Dashboard">Inicio</a>
+                    37       <h2>Actualizar Usuario</h2>
+                    38       <form action="" method="POST">
+                    39         <div>
+                    40           <label for="">Rol</label>
+                    41           <select name="rol_code" id="">
+                    42             <option value="1">admin</option>
+                    43             <option value="2" selected>customer</option>
+                    44             <option value="3">seller</option>
+                    45           </select>
+                    46         </div>
+                    47         <div>    
+                    48           <input type="hidden" name="user_code" value="1">
+                    49         </div>
+                    50         <div>
+                    51           <label for="">Nombres</label>
+                    52           <input type="text" name="user_name">
+                    53         </div>
+                    54         <div>
+                    55           <label for="">Apellidos</label>
+                    56           <input type="text" name="user_lastname">
+                    57         </div>
+                    58         <div>
+                    59           <label for="">Identificación</label>
+                    60           <input type="text" name="user_id">
+                    61         </div>
+                    62         <div>
+                    63           <label for="">Email</label>
+                    64           <input type="email" name="user_email">
+                    65         </div>
+                    66         <div>
+                    67           <label for="">Contraseña</label>
+                    68           <input type="password" name="user_pass">
+                    69         </div>
+                    70         <div>
+                    71           <label for="">Confirmación</label>
+                    72           <input type="password" name="user_pass_conf">
+                    73         </div>
+                    74         <div>
+                    75           <label for="">Estado</label>
+                    76           <select name="user_state" id="">
+                    77             <option value="1">Activo</option>
+                    78             <option value="0">Inactivo</option>
+                    79           </select>
+                    80         </div>
+                    81         <div>
+                    82           <a href="?c=Dashboard">Cancelar</a>
+                    83           <input type="submit" value="Actualizar">
+                    84         </div>
+                    85       </form>
+                    86     </div>
+                    87     <hr>
+                    88     <div>
+                    89       <h5>Realizado por: Albeiro Ramos, 2025.</h5>
+                    90     </div>
+                    91     <hr>
+                    92   </body>
+                    93   </html>
 
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |

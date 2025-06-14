@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.borde {
+    border: 1px solid gray;
+}
+.contenedor {
+    display: flex;
+    flex-flow: column nowrap;    
+    max-width: 1280px;
+    margin: auto;
+}
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 70px;
+}
+.logo, .menu, .ingreso{
+    padding: 20px;
+}
+.logo {
+    flex: 20%;
+}
+.menu {
+    flex: 65%;    
+}
+.ingreso {
+    flex: 15%;        
+}
+header, section {
+    display: flex;
+    flex-flow: row nowrap;    
+    height: 500px;
+}
+.col-port{
+    flex: 1;
+}
+.titulo {    
+    height: 50px;
+}

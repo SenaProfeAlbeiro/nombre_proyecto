@@ -1,40 +1,40 @@
-/*                  ESCRITORIO                      */
+/* ------------------- ESCRITORIO -------------------*/
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 .borde {
-    border: 1px solid gray;
+  border: 1px solid gray;
 }
 .contenedor {
-    display: flex;
-    flex-flow: column nowrap;    
-    max-width: 1280px;
-    margin: auto;
+  display: flex;
+  flex-flow: column nowrap;    
+  max-width: 1280px;
+  margin: auto;
 }
 nav {
-    display: flex;
-    flex-flow: row nowrap;
-    height: 70px;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 70px;
 }
 .logo, .menu, .ingreso{
-    padding: 20px;
+  padding: 20px;
 }
 .logo {
-    flex: 20%;
+  flex: 20%;
 }
 .menu {
-    flex: 65%;    
+  flex: 65%;    
 }
 .ingreso {
-    flex: 15%;        
+  flex: 15%;        
 }
 header, section {
-    display: flex;
-    flex-flow: row nowrap;    
-    height: 500px;
+  display: flex;
+  flex-flow: row nowrap;    
+  height: 500px;
 }
 .col-port-izq,
 .col-port-cnt, 
@@ -43,10 +43,11 @@ header, section {
   height: 100%;
 }
 .titulo {    
-    height: 50px;
+  height: 50px;
 }
 
-/*                  TABLET                      */
+
+/* --------------------- TABLET ---------------------*/
 
 @media (max-width: 768px) {  
   nav {    
@@ -75,10 +76,11 @@ header, section {
     height: 50%; 
   }
 }  
-  /*                  CELULAR                      */
-  
-  
-  @media (max-width: 576px) {
+
+
+/* -------------------- CELULAR ---------------------*/
+
+@media (max-width: 576px) {
     .logo, .menu, .ingreso {
       flex: 100%;
       height: 50px;

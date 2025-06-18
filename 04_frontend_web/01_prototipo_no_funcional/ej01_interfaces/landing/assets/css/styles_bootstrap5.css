@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.container-fluid{
+    max-width: 1280px;
+}
+header, section {
+    height: 400px;
+}

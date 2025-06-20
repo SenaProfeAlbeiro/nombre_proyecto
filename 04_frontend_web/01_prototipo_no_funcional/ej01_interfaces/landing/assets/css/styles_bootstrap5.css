@@ -3,14 +3,27 @@
   padding: 0;
   margin: 0;
 }
+.container{
+  width: 100%;
+  max-width: 1280px;
+}
 .tope{
 	position: relative;
 	top: -57px;
 }
 section, .carousel-item{
-  height: 85vh;
+  height: 500px;
 }
 .carousel-item img{
   width: auto;
   height: 100%;
+}
+.cont-fila-arr{
+  height: 70%;
+}
+.cont-fila-abj{
+  height: 30%;
+}
+footer{
+  height: 100px;
 }

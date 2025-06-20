@@ -3,6 +3,14 @@
   padding: 0;
   margin: 0;
 }
-header, section{
-  height: 90vh;
+.tope{
+	position: relative;
+	top: -57px;
+}
+section, .carousel-item{
+  height: 85vh;
+}
+.carousel-item img{
+  width: auto;
+  height: 100%;
 }

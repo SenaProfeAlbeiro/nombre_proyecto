@@ -12,7 +12,7 @@
 	top: -57px;
 }
 section, .carousel-item{
-  height: 500px;
+  height: 600px;
 }
 .carousel-item img{
   width: auto;
@@ -23,6 +23,9 @@ section, .carousel-item{
 }
 .cont-fila-abj{
   height: 30%;
+}
+.cont-fila-abj i{
+  font-size: 3em;
 }
 footer{
   height: 100px;

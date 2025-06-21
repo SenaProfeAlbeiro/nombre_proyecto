@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Controlo</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles_bootstrap5.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="border row">
+            <div class="col">
+                Navegador
+                <a href="modules/00_main/main.html" target="area_trabajo">Inicio</a>
+            </div>
+        </nav>
+        <section class="row">
+            <aside class="border col-2">
+                <h2>Panel lateral</h2>
+                <div class="mt-5">
+                    <h6>USUARIOS</h6>
+                    <div>
+                        <a href="modules/01_users/create_rol.html" target="area_trabajo">Crear Rol</a>
+                    </div>
+                    <div>
+                        <a href="modules/01_users/read_roles.html" target="area_trabajo">Consultar Roles</a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="">Crear Usuario</a>
+                    </div>
+                    <div>
+                        <a href="">Consultar Usuarios</a>
+                    </div>
+                </div>
+            </aside>
+            <main class="border col-10">
+                <iframe name="area_trabajo" src="modules/00_main/main.html"></iframe>
+            </main>
+        </section>
+        <footer class="border row">
+            <div class="col">Pie de Página</div>
+        </footer>
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    height: 7vh;
+}
+section{
+    height: 83vh;
+}
+main iframe{
+    width: 100%;
+    height: 100%;
+}
+footer{
+    height: 10vh;
+}

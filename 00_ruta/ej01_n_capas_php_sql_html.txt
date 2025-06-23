@@ -281,9 +281,9 @@
                 │   │   │   ├── rol_read.view.php               # A. Vista para consultar roles.
                 │   │   │   └── rol_update.view.php             # A. Vista para actualizar roles.
                 │   │   └── users/                              # C. Vistas del módulo Usuarios.
-                │   │       ├── users_create.view.php           # A. Vista para registrar un usuario.
-                │   │       ├── users_read.view.php             # A. Vista para consultar usuarios.
-                │   │       └── users_update.view.php           # A. Vista para actualizar usuarios.
+                │   │       ├── user_create.view.php            # A. Vista para registrar un usuario.
+                │   │       ├── user_read.view.php              # A. Vista para consultar usuarios.
+                │   │       └── user_update.view.php            # A. Vista para actualizar usuarios.
                 │   └── roles/                                  # C. Vistas de los perfiles del proyecto.
                 │       ├── admin/                              # C. Vista principal del Administrador.
                 │       │   ├── admin.view.php                  # A. Contenido principal del Administrador.
@@ -294,7 +294,7 @@
                 │       │   ├── footer.view.php                 # A. Plantilla que mantiene el pie de página de las páginas 'html' del Cliente.
                 │       │   └── header.view.php                 # A. Plantilla que mantiene el encabezado de las páginas 'html' del Cliente.
                 │       └── seller/                             # C. Vista principal del Vendedor.
-                │           ├── customer.view.php               # A. Contenido principal del Vendedor
+                │           ├── seller.view.php                 # A. Contenido principal del Vendedor
                 │           ├── footer.view.php                 # A. Plantilla que mantiene el pie de página de las páginas 'html' del Vendedor.
                 │           └── header.view.php                 # A. Plantilla que mantiene el encabezado de las páginas 'html' del Vendedor.
                 └── index.php                                   # A. Inicio del Proyecto (Enrutador a Controladores).    
@@ -693,7 +693,7 @@
 |-- 06.05.  Codificar la vista 'admin.view.php' y los controladores 'Dashboard.php' y 'Logout.php' ------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+            01. Escrbir en el archivo 'views/roles/admin/admin.view.php' el siguiente código:
                     
                     01   <!DOCTYPE html>
                     02   <html lang="en">
@@ -1035,7 +1035,7 @@
                     41           <input type="text" name="rol_name">
                     42         </div>
                     43         <div>
-                    44           <a href="?c=Dashboard">Cancelar</a>
+                    44           <a href="?c=Roles&a=readRoles">Cancelar</a>
                     45           <input type="submit" value="Enviar">
                     46         </div>
                     47       </form>
@@ -1195,7 +1195,7 @@
                     44           <input type="text" name="rol_name">
                     45         </div>
                     46         <div>
-                    47           <a href="?c=Dashboard">Cancelar</a>
+                    47           <a href="?c=Roles&a=readRoles">Cancelar</a>
                     48           <input type="submit" value="Actualizar">
                     49         </div>
                     50       </form>
@@ -1362,7 +1362,7 @@
                     76           </select>
                     77         </div>
                     78         <div>
-                    79           <a href="?c=Dashboard">Cancelar</a>
+                    79           <a href="?c=Users&a=readUsers">Cancelar</a>
                     80           <input type="submit" value="Enviar">
                     81         </div>
                     82       </form>
@@ -1567,7 +1567,7 @@
                     79           </select>
                     80         </div>
                     81         <div>
-                    82           <a href="?c=Dashboard">Cancelar</a>
+                    82           <a href="?c=Users&a=readUsers">Cancelar</a>
                     83           <input type="submit" value="Actualizar">
                     84         </div>
                     85       </form>
@@ -1670,8 +1670,131 @@
             01. Ajustar el archivo 'models/Rol.php' con el siguiente código: 
             
                     01   <?php
-
+                    02     class Rol{
+                    03       private $rolCode;
+                    04       private $rolName;
+                    05       public function __construct(){
+                    06         try {
+                    07           $this->dbh = DataBase::connection();
+                    08           $a = func_get_args();
+                    09           $i = func_num_args();
+                    10           if (method_exists($this, $f = '__construct' . $i)) {
+                    11             call_user_func_array(array($this, $f), $a);
+                    12           }
+                    13         } catch (Exception $e) {
+                    14           die($e->getMessage());
+                    15         }
+                    16       }
+                    17       public function __construct0(){}    
+                    18       public function __construct2($rolCode, $rolName){
+                    19         $this->rolCode = $rolCode;
+                    20         $this->rolName = $rolName;
+                    21       }
+                    22       public function setRolCode($rolCode){
+                    23         $this->rolCode = $rolCode;
+                    24       }
+                    25       public function getRolCode(){
+                    26         return $this->rolCode;
+                    27       }
+                    28       public function setRolName($rolName){
+                    29         $this->rolName = $rolName;
+                    30       }
+                    31       public function getRolName(){
+                    32         return $this->rolName;
+                    33       }
+                    34       public function rolCreate(){
+                    35         try {
+                    36           $sql = 'INSERT INTO ROLES VALUES (:rolCode,:rolName)';
+                    37           $stmt = $this->dbh->prepare($sql);
+                    38           $stmt->bindValue('rolCode', $this->getRolCode());
+                    39           $stmt->bindValue('rolName', $this->getRolName());
+                    40           $stmt->execute();
+                    41         } catch (Exception $e) {
+                    42           die($e->getMessage());
+                    43         }
+                    44       }
+                    45       public function rolRead(){
+                    46         try {
+                    47           $rolList = [];
+                    48           $sql = 'SELECT * FROM ROLES';
+                    49           $stmt = $this->dbh->query($sql);
+                    50           foreach ($stmt->fetchAll() as $rol) {
+                    51             $rolObj = new Rol(
+                    52               $rol['rol_codigo'],
+                    53               $rol['rol_nombre']
+                    54             );          
+                    55             array_push($rolList, $rolObj);
+                    56           }
+                    57           return $rolList;
+                    58         } catch (Exception $e) {
+                    59           die($e->getMessage());
+                    60         }
+                    61       }
+                    62       public function getRolById($rolCode) {
+                    63         try {
+                    64           $sql = "SELECT * FROM ROLES WHERE rol_codigo=:rolCode";
+                    65           $stmt = $this->dbh->prepare($sql);
+                    66           $stmt->bindValue('rolCode', $rolCode);
+                    67           $stmt->execute();
+                    68           $rolDb = $stmt->fetch();
+                    69           $rolObj = new Rol(
+                    70             $rolDb['rol_codigo'],
+                    71             $rolDb['rol_nombre']
+                    72           );
+                    73           return $rolObj;
+                    74         } catch (Exception $e) {
+                    75           die($e->getMessage());
+                    76         }
+                    77       }
+                    78       public function rolUpdate(){
+                    79         try {
+                    80           $sql = 'UPDATE ROLES SET
+                    81                     rol_codigo = :rolCode,
+                    82                     rol_nombre = :rolName
+                    83                   WHERE rol_codigo = :rolCode';
+                    84           $stmt = $this->dbh->prepare($sql);
+                    85           $stmt->bindValue('rolCode', $this->getRolCode());
+                    86           $stmt->bindValue('rolName', $this->getRolName());
+                    87           $stmt->execute();
+                    88         } catch (Exception $e) {
+                    89           die($e->getMessage());
+                    90         }
+                    91       }
+                    92       public function rolDelete($rolCode){
+                    93         try {
+                    94           $sql = 'DELETE FROM ROLES WHERE rol_codigo = :rolCode';
+                    95           $stmt = $this->dbh->prepare($sql);
+                    96           $stmt->bindValue('rolCode', $rolCode);
+                    97           $stmt->execute();
+                    98         } catch (Exception $e) {
+                    99           die($e->getMessage());
+                   100         }
+                   101       }
+                   102     }
+                   103   ?>
                     
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus atributos y funciones (o métodos), permite llamar realizar una 
+                         persistencia a la base de datos, es decir, realiza consultas CRUD (Create, Read, Update, Delete), como son: Registrar Rol,
+                         Consultar Roles, Obtener Rol por Identificador, Actualizar Rol y Eliminar Rol.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+            
+            02. Ajustar el archivo 'models/User.php' con el siguiente código: 
+            
+                    01   <?php
+
+
+
+                
                 ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
                 |                                                                                                                                      |
                   EXPLICACIÓN:   
@@ -1688,12 +1811,249 @@
 
 
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|-- 06.10.  Ajustar controlador 'Roles' y las vistas de 'roles' -----------------------------------------------------------------------------------------|
+|-- 06.10.  Ajustar el controlador 'Roles' y las vistas de 'roles' --------------------------------------------------------------------------------------|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-            01. Escrbir en el archivo 'views/roles/admin.view.php' el siguiente código:
+            01. Ajustar el archivo 'controllers/Roles.php' con el siguiente código:
                     
+                    01   <?php
+                    02     require_once "models/Rol.php";
+                    03     class Roles {
+                    04       public function main(){}
+                    05       public function createRol(){
+                    06         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    07           require_once "views/modules/roles/rol_create.view.php";
+                    08         }
+                    09         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    10           $rol = new Rol(
+                    11             null,
+                    12             $_POST['rol_name']
+                    13           );
+                    14           $rol->rolCreate();
+                    15           header("Location:?c=Roles&a=readRoles");
+                    16         }
+                    17       }    
+                    18       public function readRoles(){
+                    19         $roles = new Rol();
+                    20         $roles = $roles->rolRead();
+                    21         require_once "views/modules/roles/rol_read.view.php";
+                    22       }    
+                    23       public function updateRol(){
+                    24         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                    25           $rol = new Rol();
+                    26           $rol = $rol->getRolById($_GET['idRol']);
+                    27           require_once "views/modules/roles/rol_update.view.php";
+                    28         }
+                    29         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    30           $rol = new Rol(          
+                    31             $_POST['rol_code'],
+                    32             $_POST['rol_name']
+                    33           );
+                    34           $rol->rolUpdate();
+                    35           header("Location:?c=Roles&a=readRoles");
+                    36         }      
+                    37       }
+                    38       public function deleteRol(){
+                    39         $rol = new Rol();
+                    40         $rol->rolDelete($_GET['idRol']);
+                    41         header("Location: ?c=Roles&a=readRoles");
+                    42       }
+                    43     }
+                    44   ?>
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus atributos y funciones (o métodos), permite llamar realizar una 
+                         persistencia a la base de datos, es decir, realiza consultas CRUD (Create, Read, Update, Delete), como son: Registrar Rol,
+                         Consultar Roles, Obtener Rol por Identificador, Actualizar Rol y Eliminar Rol.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+            
+            02. Ajustar el archivo 'views/modules/roles/rol_read.view.php' con el siguiente código:
+
                     01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <div>
+                    10       <h1>Panel de Control</h1>
+                    11       <a href="?c=Logout">Cerrar Sesión</a>
+                    12     </div>
+                    13     <hr>
+                    14     <div>    
+                    15       <div>
+                    16         <h3>Roles</h3>
+                    17         <div>
+                    18           <a href="?c=Roles&a=createRol">Registrar Rol</a>
+                    19         </div>
+                    20         <div>
+                    21           <a href="?c=Roles&a=readRoles">Consultar Roles</a>
+                    22         </div>
+                    23       </div>
+                    24       <div>    
+                    25         <h3>Usuarios</h3>
+                    26         <div>
+                    27           <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    28         </div>
+                    29         <div>
+                    30           <a href="?c=Users&a=readUsers">Consultar Usuarios</a>
+                    31         </div>
+                    32       </div>    
+                    33     </div>
+                    34     <hr>
+                    35     <div>    
+                    36       <a href="?c=Dashboard">Inicio</a>
+                    37       <h2>Consultar Roles</h2>  
+                    38       <a href="?c=Roles&a=createRol">Registrar Rol</a>
+                    39       <br><br>
+                    40       <table border="1">    
+                    41         <thead>
+                    42           <th>CÓDIGO</th>
+                    43           <th>NOMBRE</th>
+                    44           <th>ACCIONES</th>
+                    45         </thead>
+                    46         <tbody>
+                    47           <?php foreach ($roles as $rol) : ?>
+                    48             <tr>
+                    49               <td><?php echo $rol->getRolCode(); ?></td>
+                    50               <td><?php echo $rol->getRolName(); ?></td>
+                    51               <td>
+                    52                 <a href="?c=Roles&a=updateRol&idRol=<?php echo $rol->getRolCode(); ?>">Actualizar</a>
+                    53                 <a href="?c=Roles&a=deleteRol&idRol=<?php echo $rol->getRolCode(); ?>">Eliminar</a>
+                    54               </td>
+                    55             </tr>
+                    56           <?php endforeach; ?>
+                    57         </tbody>
+                    58       </table>
+                    59     </div>
+                    60     <hr>
+                    61     <div>
+                    62       <h5>Realizado por: Albeiro Ramos, 2025.</h5>
+                    63     </div>
+                    64     <hr>
+                    65   </body>
+                    66   </html>                  
+
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus atributos y funciones (o métodos), permite llamar realizar una 
+                         persistencia a la base de datos, es decir, realiza consultas CRUD (Create, Read, Update, Delete), como son: Registrar Rol,
+                         Consultar Roles, Obtener Rol por Identificador, Actualizar Rol y Eliminar Rol.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+            
+            02. Ajustar el archivo 'views/modules/roles/rol_update.view.php' con el siguiente código:
+
+                    01   <!DOCTYPE html>
+                    02   <html lang="en">
+                    03   <head>
+                    04     <meta charset="UTF-8" />
+                    05     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    06     <title>Panel de Control</title>
+                    07   </head>
+                    08   <body>
+                    09     <div>
+                    10       <h1>Panel de Control</h1>
+                    11       <a href="?c=Logout">Cerrar Sesión</a>
+                    12     </div>
+                    13     <hr>
+                    14     <div>    
+                    15       <div>
+                    16         <h3>Roles</h3>
+                    17         <div>
+                    18           <a href="?c=Roles&a=createRol">Registrar Rol</a>
+                    19         </div>
+                    20         <div>
+                    21           <a href="?c=Roles&a=readRoles">Consultar Roles</a>
+                    22         </div>
+                    23       </div>
+                    24       <div>    
+                    25         <h3>Usuarios</h3>
+                    26         <div>
+                    27           <a href="?c=Users&a=createUser">Registrar Usuario</a>
+                    28         </div>
+                    29         <div>
+                    30           <a href="?c=Users&a=readUsers">Consultar Usuarios</a>
+                    31         </div>
+                    32       </div>    
+                    33     </div>
+                    34     <hr>
+                    35     <div>    
+                    36       <a href="?c=Dashboard">Inicio</a>
+                    37       <h2>Actualizar Rol</h2>
+                    38       <form action="" method="POST">
+                    39         <div>    
+                    40           <input type="hidden" name="rol_code" value="<?php echo $rol->getRolCode() ?>">
+                    41         </div>
+                    42         <div>
+                    43           <label for="">Nombre</label>
+                    44           <input type="text" name="rol_name" value="<?php echo $rol->getRolName() ?>">
+                    45         </div>
+                    46         <div>
+                    47           <a href="?c=Roles&a=readRoles">Cancelar</a>
+                    48           <input type="submit" value="Actualizar">
+                    49         </div>
+                    50       </form>
+                    51     </div>
+                    52     <hr>
+                    53     <div>
+                    54       <h5>Realizado por: Albeiro Ramos, 2025.</h5>
+                    55     </div>
+                    56     <hr>
+                    57   </body>
+                    58   </html>
+                
+                ┌ ------------------------------------------------------------------------------------------------------------------------------------ ┐
+                |                                                                                                                                      |
+                  EXPLICACIÓN:   
+                    
+                    ⦿   El código de este archivo, es una Clase que a través de sus atributos y funciones (o métodos), permite llamar realizar una 
+                         persistencia a la base de datos, es decir, realiza consultas CRUD (Create, Read, Update, Delete), como son: Registrar Rol,
+                         Consultar Roles, Obtener Rol por Identificador, Actualizar Rol y Eliminar Rol.
+
+                |--------------------------------------------------------------------------------------------------------------------------------------|
+
+                    A.   Las líneas 01 y 14, son para crear un bloque de código 'php'.
+                |                                                                                                                                      |
+                └ ------------------------------------------------------------------------------------------------------------------------------------ ┘
+
+
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- 06.11.  Ajustar el controlador 'Users' y las vistas de 'users' -----------------------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. Ajustar el archivo 'controllers/Users.php' con el siguiente código:
+                    
+                    01   <?php
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,53 @@
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- AX_03.  Cambiar los puertos de 'Apache' en 'XAMPP': -----------------------------------------------------------------------------------------------------------------|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+                         
+            01. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click en 'Config / Apache (httpd.conf)'.
+            
+            02. Se abrirá un 'Bloc de Notas'. Dar click en la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
+            
+            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '80' y dar click en 'Buscar siguiente'.
+            
+            04. Reemplazar todos los valores donde se encentre el puerto '80' con el puerto nuevo de trabajo, por ejemplo, '8080'. Dar click en 
+                'cancelar' y guardar los cambios en el archivo.
+
+            05. En el Panel de control de XAMPP dar click en 'start' de 'Apache' para iniciar el servicio.
+            
+            06. Comprobar que quedó de la forma correcta a través del navegador, con el siguiente enlace:
+
+                         http://localhost:8080/proyecto/
+            
+
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-- AX_04.  Cambiar los puertos de 'MySQL' en 'XAMPP': ------------------------------------------------------------------------------------------------------------------|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+            01. En el Panel de control de XAMPP y en la misma línea del servicio 'MySQL' dar click en 'Config / my.ini'.
+
+            02. Se abrirá un 'Bloc de Notas'. Dar click en la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
+            
+            03. En la ventana emergente y en el control de texto 'Buscar: ', escribir '3306' y dar click en 'Buscar siguiente'.
+
+            04. Reemplazar todos los valores donde se encentre el puerto '3306' con el puerto nuevo de trabajo, por ejemplo, '3308'. Dar click en 
+                'cancelar' y guardar los cambios en el archivo.
+
+            05. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click en 'Config / Apache (php.ini)'.
+
+            06. Se abrirá un 'Bloc de Notas'. Dar click en la opción 'Edición / Buscar...' (o presionar las teclas 'CTRL + B').
+
+            07. En la ventana emergente y en el control de texto 'Buscar: ', escribir '3306' y dar click en 'Buscar siguiente'.
+
+            08. Reemplazar todos los valores donde se encentre el puerto '3306' con el puerto nuevo de trabajo, por ejemplo, '3308'. Dar click en 
+                'cancelar' y guardar los cambios en el archivo.
+        
+            09. En el Panel de control de XAMPP y en la misma línea del servicio 'Apache' dar click en 'Config / phpMyAdmin (config.inc.php)'.
+
+            10. Buscar la línea '$cfg['Servers'][$i]['host'] = '127.0.0.1;' y agregar el puerto nuevo '3308' de la siguiente forma:
+                         
+                         $cfg['Servers'][$i]['host'] = '127.0.0.1:3308';
+
+            11. En el Panel de control de XAMPP dar click en 'start' de 'MySQL' para iniciar el servicio.
+
+            12. Comprobar que quedó de la forma correcta a través del navegador, con el siguiente enlace:
+
+                         http://localhost:8080/phpmyadmin/
